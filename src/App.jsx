@@ -10,6 +10,7 @@ import {
 } from "./components/Context/Context";
 import { useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
+import FilterList from "./components/FilterList/FilterList";
 
 function App() {
   // state for data context
@@ -21,17 +22,18 @@ function App() {
 
   return (
     <>
-      <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
-        <FilterInputContext.Provider value={{ userInput, setUserInput }}>
-          <Fetch />
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/detail-league" element={<DetailLeague />} />
-            <Route path="/detail-team/:id" element={<DetailTeam />} />
-          </Routes>
-        </FilterInputContext.Provider>
-      </AllLeagueContext.Provider>
+    <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
+      <FilterInputContext.Provider value={{userInput, setUserInput}}>
+      <Fetch/>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/results" element={ <FilterList/> } />
+        <Route path="/detail-league" element={<DetailLeague />} />
+        <Route path="/detail-team/:id" element={<DetailTeam />} />
+      </Routes>
+      </FilterInputContext.Provider>
+    </AllLeagueContext.Provider>
     </>
   );
 }
