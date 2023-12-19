@@ -3,8 +3,10 @@ import data from "./../../assets/data/data.json";
 import { AllLeagueContext } from "../Context/Context";
 
 const Fetch = () => {
-    const { setAllLeagueData } = useContext(AllLeagueContext);
+    const { allLeagueData, setAllLeagueData } = useContext(AllLeagueContext);
     const [fetchedData, setFetchedData] = useState([]);
+
+    console.log("FetchComponent:", allLeagueData);
 
     // fetch all league data
     useEffect(() => {
@@ -19,7 +21,7 @@ const Fetch = () => {
         // wait for all data 
         Promise.all(allPromises)
             .then(allData => {
-                setFetchedData(allData);
+                setFetchedData(allData.flat());
             });
     }, []);
 
@@ -27,6 +29,8 @@ const Fetch = () => {
     useEffect(() => {
         setAllLeagueData(fetchedData.filter((league) => league));
     }, [fetchedData, setAllLeagueData]);
+
+    
 
 };
 
