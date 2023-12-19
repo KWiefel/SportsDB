@@ -1,12 +1,19 @@
+import LeagueList from "../components/LeagueList/LeagueList";
+import Hero from "../components/_Essentials/Hero/Hero";
 import data from "../assets/data/data.json";
 import FilterBar from "../components/_Essentials/Filterbar/Filterbar";
+import './Home.scss';
 
 const Home = () => {
-  // console.log(data);
-  return <div>
-    <h1><p>ICH BIN DIE HOME</p></h1>
+  return (
+    <>
+    <Hero />
     <FilterBar/>
-  </div>;
+    <main>
+      <LeagueList />
+    </main>
+    </>
+  );
 };
 
 export default Home;
