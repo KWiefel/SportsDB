@@ -22,7 +22,7 @@ const Navbar = () => {
             <img src="" alt="" />
             <input onChange={handleSearchInput} type="text" placeholder="Search by team, stadium or competition"/>
         </nav>
-     );
+    );
 }
- 
+
 export default Navbar;
