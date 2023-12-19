@@ -1,7 +1,11 @@
 import "./DetailTeam.scss";
+import { useParams } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { AllLeagueContext } from "../components/Context/Context";
 
 const DetailTeam = () => {
-  const team = {
+  //  example data
+  const team1 = {
     idTeam: "133604",
     idSoccerXML: "9",
     idAPIfootball: "42",
@@ -88,9 +92,44 @@ const DetailTeam = () => {
     strLocked: "unlocked",
   };
 
+  // get context
+  const { allLeagueData } = useContext(AllLeagueContext);
+
+  // component state
+  const [allLeagues, setAllLeagues] = useState([]);
+
+  // set component state to global state
+  useEffect(() => {
+    setAllLeagues(allLeagueData);
+  }, [allLeagueData]);
+
+  // get team id trough dynamic link
+  const idParam = useParams();
+
+  // state for saving filtered team
+  const [teamData, setTeamData] = useState();
+  let test = [];
+
+  useEffect(() => {
+    allLeagues?.map((league) => {
+      const newData = league.filter((team) => {
+        if (team.idTeam == idParam.id) {
+          console.log(team);
+          // setTeamData(team);
+          test.push(team);
+          return team;
+        }
+      });
+      // console.log(newData);
+      // console.log(test);
+    });
+  }, []);
+
   return (
     <>
-      <header className="detailteam__wrapper">
+      <h1>TEST</h1>
+
+      {/* <header className="detailteam__header">
         <div className="background_img">
           <h1>{team.strTeam}</h1>
           <img src={team.strStadiumThumb} alt="Stadium-Picture" />
@@ -106,7 +145,58 @@ const DetailTeam = () => {
           </div>
         </div>
       </header>
-      <main></main>
+      <main className="detailteam__main">
+        <section>
+          <article className="competitions__wrapper">
+            <p className="competitions">Competitions</p>
+            <ul className="competitions_list">
+              <li>{team.strLeague}</li>
+              <li>{team.strLeague2}</li>
+              <li>{team.strLeague3}</li>
+              <li>{team.strLeague4}</li>
+              <li>{team.strLeague5}</li>
+              <li>{team.strLeague6}</li>
+              <li>{team.strLeague7}</li>
+            </ul>
+          </article>
+          <article className="description__wrapper">
+            <span className="description_span">Description</span>
+            <p className="description_text">{team.strDescriptionEN}</p>
+          </article>
+          <div className="logo__wrapper">
+            <img src={team.strTeamBadge} alt="" />
+          </div>
+          <article className="stadium__wrapper">
+            <h3>Stadium</h3>
+            <div className="stadium_flex">
+              <p className="stadium_text">{team.strStadiumDescription}</p>
+              <div className="stadium_facts">
+                <p className="subtitle">{team.strStadium}</p>
+                <p className="subtitle_description">Home</p>
+                <p className="subtitle">{team.intStadiumCapacity}</p>
+                <p className="subtitle_description">Capacity</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+      <footer className="detailteam__footer">
+        <a className="link" href={`https://${team.strWebsite}`}>
+          <p className="subtitle">Website</p>
+        </a>
+        <a className="link" href={`https://${team.strFacebook}`}>
+          <p className="subtitle">Facebook</p>
+        </a>
+        <a className="link" href={`https://${team.strTwitter}`}>
+          <p className="subtitle">Twitter</p>
+        </a>
+        <a className="link" href={`https://${team.strInstagram}`}>
+          <p className="subtitle">Instagram</p>
+        </a>
+        <a className="link" href={`https://${team.strYoutube}`}>
+          <p className="subtitle">Youtube</p>
+        </a>
+      </footer> */}
     </>
   );
 };

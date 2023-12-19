@@ -4,12 +4,15 @@ import Home from "./pages/Home";
 import DetailLeague from "./pages/DetailLeague";
 import DetailTeam from "./pages/DetailTeam";
 import Fetch from "./components/Fetch/Fetch";
-import { AllLeagueContext, FilterInputContext } from "./components/Context/Context"
+import {
+  AllLeagueContext,
+  FilterInputContext,
+} from "./components/Context/Context";
 import { useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
+import FilterList from "./components/FilterList/FilterList";
 
 function App() {
-
   // state for data context
   const [allLeagueData, setAllLeagueData] = useState([]);
 
@@ -25,6 +28,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/results" element={ <FilterList/> } />
         <Route path="/detail-league" element={<DetailLeague />} />
         <Route path="/detail-team/:id" element={<DetailTeam />} />
       </Routes>
