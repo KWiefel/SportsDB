@@ -1,7 +1,7 @@
 import data from "../assets/data/data.json";
 
 const Home = () => {
-  console.log(data);
+  // console.log(data);
   return <p>ICH BIN DIE HOME</p>;
 };
 
