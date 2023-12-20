@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
 import FilterList from "./components/FilterList/FilterList";
+import { DarkModeProvider } from "./components/Context/DarkModeContext";
 
 function App() {
   // state for data context
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+    <DarkModeProvider>
     <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
       <FilterInputContext.Provider value={{userInput, setUserInput}}>
         <FetchCompleteContext.Provider value={{fetchStatus, setFetchStatus}}>
@@ -42,6 +44,7 @@ function App() {
         </FetchCompleteContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>
+    </DarkModeProvider>
     </>
   );
 }

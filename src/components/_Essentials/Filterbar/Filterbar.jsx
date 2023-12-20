@@ -102,7 +102,7 @@ const FilterBar = () => {
                 defaultValue={1}
                 value={selectedValues[0]}
                 onChange={handleSportSelectChange}
-                style={{ color: 'white',backgroundColor:'grey' }}
+                style={{ color: 'white',backgroundColor:'black' }}
             >
                 <option disabled value={1}>All Sports</option>
                 {sportOptions.map((sport, index) => (
