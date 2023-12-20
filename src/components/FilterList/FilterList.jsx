@@ -7,6 +7,8 @@ const FilterList = () => {
     // get context
     const { allLeagueData } = useContext(AllLeagueContext);
     const { userInput, setUserInput } = useContext(FilterInputContext);
+
+    console.log(userInput);
   
     // component state
     const [results, setResults] = useState([]);
@@ -15,13 +17,19 @@ const FilterList = () => {
     useEffect(() => {
         const searchResults = [...allLeagueData].filter((team) => {
             if (team.strTeam.toLowerCase().includes(userInput)) {
-                return team.strTeam;
+                return team;
             } else if (team.strLeague.toLowerCase().includes(userInput)){
-                return team.strLeague;
-            }
-                })
-                console.log("useEffect", searchResults);
+                return team;
+            } else if(team.strSport.includes(userInput[0])) {
+                return team;
+            } else if(team.strCountry.includes(userInput[1])) {
+                return team;
+            } 
+
+                
+        })
                 setResults(searchResults);
+                console.log(results);
         }, [userInput])
 
     return (
@@ -31,6 +39,8 @@ const FilterList = () => {
         {results.map((league) => (
                 <>
                 <h2>{league.strTeam}</h2>
+                <p>{league.strLeague}</p>
+                <p>{league.strSport}</p>
                 {/* <h2>{league.strLeague}</h2> */}
                 </>
             )

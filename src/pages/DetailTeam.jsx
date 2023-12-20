@@ -10,6 +10,7 @@ const DetailTeam = () => {
   // get context
   const { allLeagueData } = useContext(AllLeagueContext);
   const { fetchStatus } = useContext(FetchCompleteContext);
+  
 
   // component state
   const [filteredTeam, setFilteredTeam] = useState([]);

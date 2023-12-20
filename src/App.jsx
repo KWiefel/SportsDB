@@ -21,7 +21,7 @@ function App() {
 
   // state for filter keyword context
   const [userInput, setUserInput] = useState([]);
-  console.log(userInput);
+  console.log("userInput in App.jsx", userInput);
 
   // state for checking initial fetch status
   const [fetchStatus, setFetchStatus] = useState(false);
