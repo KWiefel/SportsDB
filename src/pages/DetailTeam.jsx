@@ -35,9 +35,6 @@ const DetailTeam = () => {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "right",
     backgroundSize: "50%",
-
-    // width: "300px",
-    // height: "300px",
   };
 
   return (
@@ -45,8 +42,9 @@ const DetailTeam = () => {
       {/* <Link to="/"> Back Home</Link> */}
       <div className="detailteam__wrapper">
         <header className="detailteam__header">
-          <div className="background_img" style={backgroundImg}>
-            <h1>{filteredTeam[0]?.strTeam}</h1>
+          <h1 className="detailteam_title">{filteredTeam[0]?.strTeam}</h1>
+          <div className="background_img">
+            <div className="img"></div>
             <div className="facts__wrapper">
               <p className="subtitle">{filteredTeam[0]?.strCountry}</p>
               <p className="subtitle_description">Country</p>
@@ -57,6 +55,7 @@ const DetailTeam = () => {
               <p className="subtitle">{filteredTeam[0]?.strSport}</p>
               <p className="subtitle_description">Sport</p>
             </div>
+            <img src={filteredTeam[0]?.strStadiumThumb} alt="" />
           </div>
         </header>
         <main className="detailteam__main">
@@ -83,7 +82,7 @@ const DetailTeam = () => {
               <img src={filteredTeam[0]?.strTeamBadge} alt="" />
             </div>
             <article className="stadium__wrapper">
-              <h3>Stadium</h3>
+              <h3 className="stadium_title">Stadium</h3>
               <div className="stadium_flex">
                 <p className="stadium_text">
                   {filteredTeam[0]?.strStadiumDescription}
