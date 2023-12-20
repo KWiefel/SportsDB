@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FilterInputContext } from "../../Context/Context";
 import data from "../../../assets/data/data.json";
+import country from "../../../assets/data/country.json";
 import './Filterbar.scss';
 
 const FilterBar = () => {
@@ -16,21 +17,10 @@ const FilterBar = () => {
         const fetchData = async () => {
             try {
                 const teamsData = data;
-
                 const uniqueSports = [...new Set(teamsData.map((team) => team.strSport))];
                 const sportDropdownOptions = uniqueSports.map((sport) => sport);
                 setSportOptions(sportDropdownOptions);
 
-                const excludedLeagues = ["WTCC", "WRC", "MotoGP", "NASCAR", "NBA", "UK", "CFL", "NFL", "BTCC", "Formula", "NHL", "IndyCar"];
-
-                const countryEntries = teamsData.filter(team => {
-                    return team.strLeague &&
-                    team.strLeague !== "_No League" &&
-                    !excludedLeagues.some(excludedLeague => team.strLeague.includes(excludedLeague)) &&
-                    !team.strLeague.match(/[0-9]/);
-                });
-                const uniqueCountries = [...new Set(countryEntries.map((team) => team.strLeague.split(' ')[0]))];
-                setCountryOptions(uniqueCountries);
             } catch (error) {
                 console.error("Error loading data:", error);
             }
@@ -99,10 +89,10 @@ const FilterBar = () => {
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
             <select
+                className="allSports"
                 defaultValue={1}
                 value={selectedValues[0]}
                 onChange={handleSportSelectChange}
-                style={{ color: 'white',backgroundColor:'black' }}
             >
                 <option disabled value={1}>All Sports</option>
                 {sportOptions.map((sport, index) => (
@@ -110,13 +100,13 @@ const FilterBar = () => {
                 ))}
             </select>
             <select
+                className="allCountry"
                 defaultValue={1}
                 value={selectedValues[1]}
                 onChange={handleCountrySelectChange}
-                style={{ color: 'white',backgroundColor:'black' }}
             >
                 <option disabled value={1}>All Country</option>
-                {countryOptions.map((country, index) => (
+                {country.map((country, index) => (
                     <option key={index} value={country}>{country}</option>
                 ))}
             </select>
@@ -125,26 +115,3 @@ const FilterBar = () => {
 };
 
 export default FilterBar;
-{/* <div className="dropDownWrapper">
-{renderSelectedOptions()}
-<Dropdown
-id="sportDropdown"
-arrowClosed={<span className="arrow-closed" />}
-isClearable
-onClose={(closedBySelection) => handleDropdownClose(closedBySelection, "sportDropdown")}
-onOpen={() => console.log('open!')}
-placeholder="All Sports"
-options={sportOptions}
-onChange={(value) => handleSportDropdownChange(value.value)}
-/>
-<Dropdown
-id="countryDropdown"
-arrowClosed={<span className="arrow-closed" />}
-isClearable
-onClose={(closedBySelection) => handleDropdownClose(closedBySelection, "countryDropdown")}
-onOpen={() => console.log('open!')}
-placeholder="Allountry"
-options={countryOptions}
-onChange={(value) => handleCountryDropdownChange(value.value)}
-/>
-</div> */}
