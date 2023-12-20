@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
 import FilterList from "./components/FilterList/FilterList";
+import { DarkModeProvider } from "./components/Context/DarkModeContext";
 
 function App() {
   // state for data context
@@ -20,7 +21,7 @@ function App() {
 
   // state for filter keyword context
   const [userInput, setUserInput] = useState([]);
-  console.log(userInput);
+  console.log("userInput in App.jsx", userInput);
 
   // state for checking initial fetch status
   const [fetchStatus, setFetchStatus] = useState(false);
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+    <DarkModeProvider>
     <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
       <FilterInputContext.Provider value={{userInput, setUserInput}}>
         <FetchCompleteContext.Provider value={{fetchStatus, setFetchStatus}}>
@@ -36,12 +38,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/results" element={ <FilterList/> } />
-            <Route path="/detail-league" element={<DetailLeague />} />
+            <Route path="/detail-league/:id" element={<DetailLeague />} />
             <Route path="/detail-team/133604" element={<DetailTeam />} />
           </Routes>
         </FetchCompleteContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>
+    </DarkModeProvider>
     </>
   );
 }

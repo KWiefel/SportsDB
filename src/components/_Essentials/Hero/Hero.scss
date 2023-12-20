@@ -1,8 +1,30 @@
-header {
-    padding-inline: 3%;
-    background: url(./home_hero_background.jpeg) center / cover no-repeat;
-    background-position: left;
+.hero_header {
+  padding-inline: 3%;
+  height: 580px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  div{
+    background: url("home_hero_background.jpeg") center / cover no-repeat;
     background-origin: padding-box;
-    background-size: 800px 600px;
-    height: 50vh;
+    background-size: 980px 680px;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(-1);
+    filter: grayscale(1);
+    position: absolute;
+    left: -160px;
+  }
+
+  h1
+  {
+    font-size: 168px;
+    position: absolute;
+    top: 100px;
+    right: 3%;
+    font-family: "Montserrat";
+    color: #E83539;
+    text-align: right;
+  }
 }
