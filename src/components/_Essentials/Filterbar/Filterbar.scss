@@ -1,9 +1,21 @@
 .dropDownWrapper{
     display: flex;
-    .renderFilter{
+    justify-content: flex-end;
+    .filterWrap{
         display: flex;
+        div{
+            color: white;
+            max-width: fit-content;
+            height: 4vh;
+            display: flex;
+            border: 1px solid white;
+            background-color: transparent;
+            
+        }
     }
     div{
         width: 280px;
+        color: black;
     }
 }
+
