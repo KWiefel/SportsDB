@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { FilterInputContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
-import logo from './../../../../public/union.svg'
-import frame from './../../../../public/frame.png'
+import logo from '/union.svg'
+import frame from '/frame.png'
 import "./Navbar.scss"
 
 const Navbar = () => {

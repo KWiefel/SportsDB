@@ -34,7 +34,6 @@ const Fetch = () => {
             setFetchStatus(true);
         }, 6000);
     }, [fetchedData, setAllLeagueData]);
-
     
 
 };

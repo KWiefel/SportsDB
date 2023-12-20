@@ -6,11 +6,11 @@ import './Filterbar.scss';
 
 const FilterBar = () => {
     const navigate = useNavigate();
-    const { setUserInput } = useContext(FilterInputContext);
+    const { userInput, setUserInput } = useContext(FilterInputContext);
 
     const [sportOptions, setSportOptions] = useState([]);
     const [countryOptions, setCountryOptions] = useState([]);
-    const [selectedValues, setSelectedValues] = useState(["", ""]);
+    const [selectedValues, setSelectedValues] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,21 +41,21 @@ const FilterBar = () => {
 
     const handleSportSelectChange = (event) => {
         const value = event.target.value;
-        setSelectedValues([value, selectedValues[1]]);
+        setUserInput([value, selectedValues[1]]);
+        navigate("/results");
     };
 
     const handleCountrySelectChange = (event) => {
         const value = event.target.value;
-        setSelectedValues([selectedValues[0], value]);
+        setUserInput([selectedValues[0], value]);
+        navigate("/results");
     };
 
     useEffect(() => {
         console.log("Saved Values:", selectedValues);
 
-        const userInputArray = [selectedValues[0], selectedValues[1]];
-        setUserInput(userInputArray);
-
-        // navigate("/");
+        // const userInputArray = [selectedValues[0], selectedValues[1]];
+        setUserInput(selectedValues);
     }, [selectedValues, setUserInput, navigate]);
 
     const renderSelectedOptions = () => {
@@ -89,9 +89,9 @@ const FilterBar = () => {
 
     const handleRemoveFilter = (filterType) => {
         if (filterType === "sport") {
-            setSelectedValues(["", selectedValues[1]]);
+            setSelectedValues([selectedValues[1]]);
         } else if (filterType === "country") {
-            setSelectedValues([selectedValues[0], ""]);
+            setSelectedValues([selectedValues[0]]);
         }
     };
 
@@ -99,21 +99,23 @@ const FilterBar = () => {
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
             <select
+                defaultValue={1}
                 value={selectedValues[0]}
                 onChange={handleSportSelectChange}
                 style={{ color: 'white',backgroundColor:'grey' }}
             >
-                <option disabled value="">All Sports</option>
+                <option disabled value={1}>All Sports</option>
                 {sportOptions.map((sport, index) => (
                     <option key={index} value={sport}>{sport}</option>
                 ))}
             </select>
             <select
+                defaultValue={1}
                 value={selectedValues[1]}
                 onChange={handleCountrySelectChange}
                 style={{ color: 'white',backgroundColor:'black' }}
             >
-                <option disabled value="">All Country</option>
+                <option disabled value={1}>All Country</option>
                 {countryOptions.map((country, index) => (
                     <option key={index} value={country}>{country}</option>
                 ))}
