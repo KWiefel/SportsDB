@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { FilterInputContext } from "../../Context/Context";
+import { FilterInputContext, SearchStatusContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '/union.svg'
 import frame from '/frame.png'
@@ -11,12 +11,14 @@ const Navbar = () => {
     
     // get global keyword state setter
     const { userInput, setUserInput } = useContext(FilterInputContext);
+    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext); 
 
     // set global keyword state to user input
     const handleSearchInput = (event) =>
     {
         setUserInput([event.target.value.trim().toLowerCase()]);
-        navigate('/results');
+        // navigate('/results');
+        setSearchStatus(true);
     }
 
     	//=======DarkMode=================
@@ -34,11 +36,16 @@ const Navbar = () => {
 	};
 	useEffect(() => {}, [isDarkMode]);
 
+    const handleLogoClick = () => {
+        setSearchStatus(false);
+        setUserInput([]);
+    }
+
     return ( 
         <nav className="navbar_container">
             <Link to="/" className="logo">
-                <img src={logo} alt="Sports.DB" />
-                <p>SPORTS.DB</p>
+                <img onClick={handleLogoClick} src={logo} alt="Sports.DB" />
+                <p onClick={handleLogoClick} >SPORTS.DB</p>
             </Link>
             <div>
             <button
@@ -48,7 +55,8 @@ const Navbar = () => {
 			</button>
             </div>
             <div className="searchbar">
-                <input onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
+                <input
+                value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
                 <img src={frame} alt="" />
             </div>
         </nav>

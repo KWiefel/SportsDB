@@ -4,7 +4,7 @@ import data from "../assets/data/data.json";
 import FilterBar from "../components/_Essentials/Filterbar/Filterbar";
 import './Home.scss';
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const Home = () => {
 

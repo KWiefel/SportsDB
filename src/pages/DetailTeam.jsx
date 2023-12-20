@@ -5,6 +5,7 @@ import {
   AllLeagueContext,
   FetchCompleteContext,
 } from "../components/Context/Context";
+import loadingAnimation from "/sportdb_loading.gif"
 
 const DetailTeam = () => {
   // get context
@@ -29,7 +30,7 @@ const DetailTeam = () => {
     });
   }, [fetchStatus]);
 
-  return (
+  return ( fetchStatus ? (
     <>
       {/* <Link to="/"> Back Home</Link> */}
       <div className="detailteam__wrapper">
@@ -110,6 +111,8 @@ const DetailTeam = () => {
         </footer>
       </div>
     </>
+  ) : <img className="loading_animation" src={loadingAnimation} alt="" />
+    
   );
 };
 
