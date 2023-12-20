@@ -1,8 +1,14 @@
 const DetailLeague = () => {
+  return (
+    <>
+      <section>
+        <h1>Detail League</h1>
+      </section>
+      <section>
 
-  return <>
-          <p>ICH BIN DIE DETAILLEAGUE</p>
-        </>
-};
+      </section>
+    </>
+  );
+}
 
 export default DetailLeague;

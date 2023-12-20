@@ -15,14 +15,13 @@ const LeagueList = () => {
 
     return (
         <section>
-            <h2>Home</h2>
             {Object.entries(groupedData).map(([letter, leagues]) => (
             <div key={letter}>
                 <h3>{letter}</h3>
                 <ul>
                 {leagues.map(league => (
                     <li key={league.idLeague}>
-                    <Link><strong>{league.strLeague}</strong> <span>{league.strSport}</span></Link>
+                    <Link to={`/detail-league/${league.idLeague}`}><strong>{league.strLeague}</strong> <span>{league.strSport}</span></Link>
                     </li>
                 ))}
                 </ul>
