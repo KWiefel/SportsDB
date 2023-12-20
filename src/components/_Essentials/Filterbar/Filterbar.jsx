@@ -55,7 +55,7 @@ const FilterBar = () => {
         const userInputArray = [selectedValues[0], selectedValues[1]];
         setUserInput(userInputArray);
 
-        // navigate("/");
+        // navigate("/result");
     }, [selectedValues, setUserInput, navigate]);
 
     const renderSelectedOptions = () => {
@@ -101,7 +101,7 @@ const FilterBar = () => {
             <select
                 value={selectedValues[0]}
                 onChange={handleSportSelectChange}
-                style={{ color: 'white',backgroundColor:'grey' }}
+                style={{ color: 'white',backgroundColor:'transparent' }}
             >
                 <option disabled value="">All Sports</option>
                 {sportOptions.map((sport, index) => (
@@ -111,7 +111,7 @@ const FilterBar = () => {
             <select
                 value={selectedValues[1]}
                 onChange={handleCountrySelectChange}
-                style={{ color: 'white',backgroundColor:'black' }}
+                style={{ color: 'white',backgroundColor:'transparent' }}
             >
                 <option disabled value="">All Country</option>
                 {countryOptions.map((country, index) => (
@@ -121,7 +121,6 @@ const FilterBar = () => {
         </div>
     );
 };
-
 export default FilterBar;
 {/* <div className="dropDownWrapper">
 {renderSelectedOptions()}
