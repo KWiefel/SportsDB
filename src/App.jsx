@@ -39,7 +39,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/results" element={ <FilterList/> } />
             <Route path="/detail-league/:id" element={<DetailLeague />} />
-            <Route path="/detail-team/133604" element={<DetailTeam />} />
+            <Route path="/detail-team/:id" element={<DetailTeam />} />
           </Routes>
         </FetchCompleteContext.Provider>
       </FilterInputContext.Provider>
