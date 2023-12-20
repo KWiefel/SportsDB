@@ -1,64 +1,24 @@
-.detailteam__header {
-  font-family: "Montserrat";
-  color: white;
-  padding: 3%;
+.detailteam__wrapper {
+  background-color: black;
+  .detailteam__header {
+    font-family: "Montserrat";
+    color: white;
+    padding: 3%;
 
-  .background_img {
-    position: relative;
-    text-align: center;
-    h1 {
-      //   position: absolute;
-      color: red;
-      text-transform: uppercase;
-      font-size: 6rem;
-    }
-    img {
-      width: 50%;
-    }
-
-    .facts__wrapper {
-      .subtitle {
+    .background_img {
+      text-align: center;
+      h1 {
+        color: red;
         text-transform: uppercase;
-        font-size: 2.25rem;
+        font-size: 6rem;
       }
-      .subtitle_description {
-        font-family: "Montserrat";
+      img {
+        width: 50%;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
       }
-    }
-  }
-}
 
-.detailteam__main {
-  font-family: "Montserrat";
-
-  .competitions__wrapper {
-    display: flex;
-
-    .competitions_list {
-      list-style: none;
-      font-size: 2.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-  }
-
-  .description__wrapper {
-    display: flex;
-    .description_text {
-      width: 80%;
-      column-width: 400px;
-    }
-  }
-
-  .stadium__wrapper {
-    .stadium_flex {
-      display: flex;
-
-      .stadium_text {
-        width: 80%;
-        column-width: 400px;
-      }
-      .stadium_facts {
+      .facts__wrapper {
         .subtitle {
           text-transform: uppercase;
           font-size: 2.25rem;
@@ -70,11 +30,54 @@
     }
   }
 
-  .detailteam__footer {
-    .link {
-      text-transform: uppercase;
-      font-size: 2.25rem;
-      text-decoration: none;
+  .detailteam__main {
+    font-family: "Montserrat";
+
+    .competitions__wrapper {
+      display: flex;
+
+      .competitions_list {
+        list-style: none;
+        font-size: 2.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+
+    .description__wrapper {
+      display: flex;
+      .description_text {
+        width: 80%;
+        column-width: 400px;
+      }
+    }
+
+    .stadium__wrapper {
+      .stadium_flex {
+        display: flex;
+
+        .stadium_text {
+          width: 80%;
+          column-width: 400px;
+        }
+        .stadium_facts {
+          .subtitle {
+            text-transform: uppercase;
+            font-size: 2.25rem;
+          }
+          .subtitle_description {
+            font-family: "Montserrat";
+          }
+        }
+      }
+    }
+
+    .detailteam__footer {
+      .link {
+        text-transform: uppercase;
+        font-size: 2.25rem;
+        text-decoration: none;
+      }
     }
   }
 }
