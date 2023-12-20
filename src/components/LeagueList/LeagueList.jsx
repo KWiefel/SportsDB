@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import data from "../../assets/data/data.json";
 import './LeagueList.scss'
 
@@ -14,14 +15,14 @@ const LeagueList = () => {
 
     return (
         <section>
-            <h2>List of Leagues</h2>
+            <h2>Home</h2>
             {Object.entries(groupedData).map(([letter, leagues]) => (
             <div key={letter}>
                 <h3>{letter}</h3>
                 <ul>
                 {leagues.map(league => (
                     <li key={league.idLeague}>
-                    <strong>{league.strLeague}</strong> - {league.strSport}
+                    <Link><strong>{league.strLeague}</strong> <span>{league.strSport}</span></Link>
                     </li>
                 ))}
                 </ul>

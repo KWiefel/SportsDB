@@ -8,10 +8,18 @@
   src: url(../src/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(../src/assets/fonts/Inter/Inter-Regular.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: black;
   color: white;
+}
+
+body {
+  background-color: #0F0F0F;
 }
