@@ -1,0 +1,71 @@
+.navbar_container {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4%;
+
+    .logo {
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+        
+        img {
+            width: 20px;
+            background: none;
+        }
+        
+        p
+        {
+            font-size: 20px;
+            background: none;
+        }
+    }
+
+    .searchbar
+    {
+        position: relative;
+        input{
+            border: 3px solid white;
+            height: 28px;
+            padding-left: 24px;
+            width: 40px;
+            transition: all 0.5s linear;
+            &::placeholder
+            {
+                opacity: 0;
+                transition: all 0.5s ease;
+            }
+            &:focus
+            {
+                outline: none;
+                width: 272px;
+            }
+            &:hover
+            {
+                width: 272px;
+                &::placeholder
+                {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img{
+            position: absolute;
+            background: none;
+            width: 14px;
+            left: 8px;
+            top: 8px;
+        }
+    }
+}
