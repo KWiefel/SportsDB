@@ -32,7 +32,7 @@ const DetailTeam = () => {
   return (
     <>
       {/* <Link to="/"> Back Home</Link> */}
-      <div className="detailteam__wrapper">
+      <div className={`detailteam__wrapper`}>
         <header className="detailteam__header">
           <h1 className="detailteam_title">{filteredTeam[0]?.strTeam}</h1>
           <div className="background_img">

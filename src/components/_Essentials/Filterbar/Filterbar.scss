@@ -1,8 +1,23 @@
 .dropDownWrapper{
+    padding-inline: 5%;
     display: flex;
     justify-content: flex-end;
+    gap: 60px;
+    .allCountry{
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        border: 3px solid white;
+    }
+    
+    .allSports{
+        background-color: transparent;
+        color: white;
+        border: 3px solid white;
+    }
     .filterWrap{
         display: flex;
+
         div{
             color: white;
             max-width: fit-content;
