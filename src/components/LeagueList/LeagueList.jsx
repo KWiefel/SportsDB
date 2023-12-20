@@ -21,7 +21,7 @@ const LeagueList = () => {
                 <ul>
                 {leagues.map(league => (
                     <li key={league.idLeague}>
-                    <Link to={`/detail-league/${league.idLeague}`}><strong>{league.strLeague}</strong> <span>{league.strSport}</span></Link>
+                    <Link to={`/detail-league/${league.idLeague}`}><span>{league.strLeague}</span> <span>{league.strSport}</span></Link>
                     </li>
                 ))}
                 </ul>

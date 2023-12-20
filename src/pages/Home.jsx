@@ -13,7 +13,7 @@ const Home = () => {
     <Hero />
     <FilterBar/>
     <main>
-      <Link to="/detail-team/133604">LINK DETAIL TEAM</Link>
+      <Link to="/detail-team/:id">LINK DETAIL TEAM</Link>
       <LeagueList />
     </main>
     </>
