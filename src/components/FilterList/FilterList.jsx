@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AllLeagueContext, FilterInputContext } from "./../Context/Context";
+import { AllLeagueContext, FilterInputContext, SearchStatusContext } from "./../Context/Context";
 import { Link } from "react-router-dom";
 
 const FilterList = () => {
@@ -7,6 +7,7 @@ const FilterList = () => {
     // get context
     const { allLeagueData } = useContext(AllLeagueContext);
     const { userInput, setUserInput } = useContext(FilterInputContext);
+    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
 
     console.log(userInput);
   
@@ -25,7 +26,6 @@ const FilterList = () => {
             } else if(team.strCountry.includes(userInput[1])) {
                 return team;
             } 
-
                 
         })
                 setResults(searchResults);

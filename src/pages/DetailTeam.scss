@@ -10,9 +10,13 @@
       color: red;
       text-transform: uppercase;
       font-size: 6rem;
+      // position: absolute;
+      // left: 33vw;
+      // top: 25%;
       position: absolute;
-      left: 33vw;
-      top: 25%;
+      top: 23%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 1;
     }
 
@@ -100,7 +104,7 @@
     }
 
     .logo__wrapper {
-      padding: 5em;
+      padding: 0em;
       text-align: center;
 
       img {
@@ -165,34 +169,186 @@
   }
 }
 
-@media (max-width: 575.98px) {}
-
-@media (max-width: 767.98px) {}
-
-@media (max-width: 991.98px) {
-  .detailteam__wrapper {
-    // background-color: red;
-
-    .detailteam__header {
-      .detailteam_title {
-        left: 30vw;
-        top: 18%;
-        font-size: 3rem;
-      }
-    }
-  }
-}
+// Media Querries
+@media (max-width: 1399.98px) {}
 
 @media (max-width: 1199.98px) {
   .detailteam__wrapper {
+
+    // background-color: red;
     .detailteam__header {
       .detailteam_title {
-        left: 30vw;
-        top: 18%;
         font-size: 5rem;
+      }
+    }
+
+    .facts__wrapper {
+      .subtitle {
+        font-size: 1.7rem;
       }
     }
   }
 }
 
-@media (max-width: 1399.98px) {}
+@media (max-width: 991.98px) {
+  .detailteam__wrapper {
+    // background-color: blue;
+
+    .detailteam__header {
+      .detailteam_title {
+        font-size: 4rem;
+      }
+
+      .background_img {
+        .facts__wrapper {
+          .subtitle {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+
+    .detailteam__main {
+      .description__wrapper {
+        .description_text {
+          column-count: 1;
+          line-height: 120%;
+        }
+      }
+
+      .stadium__wrapper {
+        .stadium_flex {
+          .stadium_text {
+            column-count: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .detailteam__wrapper {
+    // background-color: blue;
+
+    .detailteam__header {
+      .detailteam_title {
+        font-size: 3rem;
+      }
+    }
+
+    .detailteam__main {
+      .description__wrapper {
+        .description_text {
+          width: 60%;
+        }
+      }
+
+      .stadium__wrapper {
+        .stadium_flex {
+          .stadium_text {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .detailteam__wrapper {
+    // background-color: blue;
+
+    .detailteam__header {
+      text-align: center;
+
+      .detailteam_title {
+        position: relative;
+        font-size: 3rem;
+        padding-top: 4%;
+      }
+
+      .background_img {
+        display: block;
+
+        img {
+          max-width: 100%;
+          aspect-ratio: 0;
+          padding-top: 56px;
+        }
+
+        .facts__wrapper {
+          .subtitle {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+
+    .detailteam__main {
+      .competitions__wrapper {
+        margin-left: 0;
+        display: block;
+
+        .competitions {
+          padding-bottom: 16px;
+        }
+
+        .competitions_list {
+          font-size: 2rem;
+        }
+      }
+
+      .description__wrapper {
+        .description_span {
+          font-size: 1.5rem;
+          margin-right: 8px;
+        }
+
+        .description_text {
+          width: 80%;
+        }
+      }
+
+      .logo__wrapper {
+        padding: 5em;
+
+        img {
+          width: 100%;
+          // padding-left: auto;
+        }
+      }
+
+      .stadium__wrapper {
+        .stadium_flex {
+          display: block;
+
+          .stadium_text {
+            width: 80%;
+            padding-bottom: 48px;
+          }
+
+          .stadium_facts {
+            padding-right: 48px;
+
+            .subtitle {
+              font-size: 2.25rem;
+              margin: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    .detailteam__footer {
+      padding-bottom: 30px;
+      padding-left: 5%;
+
+      .link {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
+//

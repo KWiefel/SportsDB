@@ -8,6 +8,7 @@ import {
   AllLeagueContext,
   FetchCompleteContext,
   FilterInputContext,
+  SearchStatusContext
 } from "./components/Context/Context";
 import { useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
@@ -18,8 +19,9 @@ function App() {
   const [allLeagueData, setAllLeagueData] = useState([]);
   console.log("App.jsx", allLeagueData);
 
-  // state for filter keyword context
+  // states for search functions
   const [userInput, setUserInput] = useState([]);
+  const [searchStatus, setSearchStatus] = useState(false);
   console.log("userInput in App.jsx", userInput);
 
   // state for checking initial fetch status
@@ -32,6 +34,7 @@ function App() {
     <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
       <FilterInputContext.Provider value={{userInput, setUserInput}}>
         <FetchCompleteContext.Provider value={{fetchStatus, setFetchStatus}}>
+        <SearchStatusContext.Provider value={{searchStatus, setSearchStatus}}>
           <Fetch/>
           <Navbar/>
           <Routes>
@@ -40,6 +43,7 @@ function App() {
             <Route path="/detail-league/:id" element={<DetailLeague />} />
             <Route path="/detail-team/:id" element={<DetailTeam />} />
           </Routes>
+        </SearchStatusContext.Provider>
         </FetchCompleteContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>
