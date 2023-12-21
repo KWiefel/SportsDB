@@ -67,9 +67,10 @@ const LeagueList = () => {
         <div>
         <ul >
         {results.map((team, index) => (
-                    <li key={index}>
-                    <Link to={`/detail-team/${team.idTeam}`}><span>{team.strTeam}</span> <span>{team.strSport}</span></Link>
-                    </li>
+            <li key={index}>
+            <Link to={`/detail-team/${team.idTeam}`}>
+                <span>{team.strTeam}</span> <span>{team.strSport}</span></Link>
+            </li>
             ))}
                 </ul>
                 </div>
@@ -78,12 +79,12 @@ const LeagueList = () => {
         ) : 
         <div className="no_results_found">
             <p>Unfortunately, no matches for 
-                {!userInput.includes(",") ? (` ${userInput}` ) :(` ${userInput.slice(0, userInput.indexOf(","))} in ${userInput.slice(userInput.indexOf(",") + 1)}`)
+                {!userInput.includes(",") ? (` ${userInput}.` ) :(` ${userInput.slice(0, userInput.indexOf(","))} in ${userInput.slice(userInput.indexOf(",") + 1)}. `)
                 }</p>
         <img src={noResultsScreen} alt="no results" />
         </div>
     )
-         : (
+        : (
         <section className="league_list">
             {Object.entries(groupedData).map(([letter, leagues]) => (
             <div key={letter}>

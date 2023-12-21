@@ -28,3 +28,70 @@
     text-align: right;
   }
 }
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+  .hero_header {
+    height: 400px;
+      
+    h1 {
+        font-size: 7rem;
+  
+      }
+
+      div {
+        background-origin: padding-box;
+        background-size: 780px 480px;
+        left: -220px;
+      }
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .hero_header {
+      h1 {
+        font-size: 6rem;
+  
+      }
+    }
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .hero_header {
+    height: 320px;
+    h1 {
+      font-size: 5rem;
+
+    }
+        div {
+          background-origin: padding-box;
+          background-size: 640px 420px;
+          left: -60px;
+        }
+  }
+
+}
+
+
+@media (max-width: 575.98px) {
+  .hero_header {
+    height: 250px;
+    h1
+    {
+      font-size: 3rem;
+
+    }
+        div {
+          background-origin: padding-box;
+          background-size: 420px 270px;
+          left: -60px;
+        }
+  }
+
+}
+
