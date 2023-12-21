@@ -32,16 +32,19 @@ const LeagueList = () => {
 
     // filter data by user input
     useEffect(() => {
+        // const keyword = userInput[0].trim().toLowerCase()
         const searchResults = [...allLeagueData].filter((team) => {
-            if (team.strTeam.toLowerCase().includes(userInput)) {
-                return team;
-            } else if (team.strLeague.toLowerCase().includes(userInput)){
-                return team;
-            } else if(team.strSport.includes(userInput[0])) {
-                return team;
-            } else if(team.strCountry.includes(userInput[1])) {
-                return team;
-            } 
+            if (userInput.length < 2) {
+                if (team.strTeam.toLowerCase().includes(userInput)) {
+                    return team;
+                } else if (team.strStadium.toLowerCase().includes(userInput)){
+                    return team;
+                } else if(team.strSport.includes(userInput[0])) {
+                    return team;
+                } else if(team.strCountry.includes(userInput[1])) {
+                    return team;
+                } 
+            }
                 
         })
                 setResults(searchResults);
@@ -50,19 +53,19 @@ const LeagueList = () => {
 
     // ==================================================================
 
-    return ( searchStatus ? (<>
-        <p>ICH BIN DIE FILTER LIST</p>
-        <Link to="/"> BACK HOME</Link>
-        {results.map((league) => (
-                <>
-                <h2>{league.strTeam}</h2>
-                <p>{league.strLeague}</p>
-                <p>{league.strSport}</p>
-                {/* <h2>{league.strLeague}</h2> */}
-                </>
-            )
-        )}
-        </> ) : (
+    return ( searchStatus ? (
+    <section>
+        <div>
+        <ul>
+        {results.map((team, index) => (
+                    <li key={index}>
+                    <Link to={`/detail-team/${team.idTeam}`}><span>{team.strTeam}</span> <span>{team.strSport}</span></Link>
+                    </li>
+            ))}
+                </ul>
+                </div>
+                </section>)
+         : (
         <section>
             {Object.entries(groupedData).map(([letter, leagues]) => (
             <div key={letter}>

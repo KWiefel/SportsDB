@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Home from "./pages/Home";
 import DetailLeague from "./pages/DetailLeague";
 import DetailTeam from "./pages/DetailTeam";
@@ -41,7 +41,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/results" element={ <FilterList/> } />
             <Route path="/detail-league/:id" element={<DetailLeague />} />
-            <Route path="/detail-team/:id" element={<DetailTeam />} />
+            <Route path="/detail-team/:idTeam" element={<DetailTeam />} />
           </Routes>
         </SearchStatusContext.Provider>
         </FetchCompleteContext.Provider>

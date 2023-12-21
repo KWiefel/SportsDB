@@ -1,5 +1,5 @@
 .detailteam__wrapper {
-  background-color: black;
+  background-color: #0F0F0F;
 
   .detailteam__header {
     font-family: "Montserrat";
@@ -255,6 +255,21 @@
   }
 }
 
+// ============ LOADING ANIMATION BEGIN ====================
+.loading_animation_container {
+  width: 500px;
+  height: 500px;
+  margin-inline: auto;
+  filter: brightness(0.9);
+  img{
+    border-radius: 50%;
+    width: 500px;
+    object-fit: contain;
+    filter: contrast(1.21);
+  }
+}
+// ============== LOADING ANIMATION END ====================
+
 @media (max-width: 575.98px) {
   .detailteam__wrapper {
     // background-color: blue;
@@ -340,6 +355,7 @@
       }
     }
 
+    
     .detailteam__footer {
       padding-bottom: 30px;
       padding-left: 5%;
