@@ -38,10 +38,9 @@ const DetailTeam = () => {
   }, [dataLoading, idTeam]);
 
 
-  return ( dataAvailable ? (
 
       	//=======DarkMode=================
-	const { isDarkMode, setIsDarkMode } = useDarkmode(false);
+  const { isDarkMode, setIsDarkMode } = useDarkmode(false);
 	const body = document.div;
 	const toggleDarkMode = () => {
 		setIsDarkMode(!isDarkMode);
@@ -55,7 +54,7 @@ const DetailTeam = () => {
 	};
 	useEffect(() => {}, [isDarkMode]);
 
-  return ( fetchStatus ? (
+  return ( dataAvailable ? (
 
     <>
       {/* <Link to="/"> Back Home</Link> */}
