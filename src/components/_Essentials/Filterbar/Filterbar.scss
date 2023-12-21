@@ -1,5 +1,5 @@
 .dropDownWrapper{
-    padding-top: 20px;
+    padding-top: 100px;
     padding-inline: 4.5%;
     display: flex;
     gap: 60px;
@@ -18,16 +18,11 @@
         color: #ffffff84;
         background-color: #0F0F0F;
         position: absolute;
-        top: 28px;
-        left: 82%;
-        right: 0;
-        bottom: 0;
-        display: block;
-        align-items: center;
+        bottom: 3px;
         width: 170px;
-        height: 20px;
-        justify-content: center; 
-        z-index: 1; 
+        height: 26px;
+        margin-right: 20px;
+        z-index: 1;
         }
 
         .countSelect {
@@ -38,19 +33,14 @@
             background-color:#0F0F0F;
         }
     .overlay {
-    color: #ffffff84;
-    background-color: #0F0F0F;
-    position: absolute;
-    top: 28px;
-    left: 64%;
-    right: 0;
-    bottom: 0;
-    display: block;
-    align-items: center;
-    width: fit-content;
-    height: 20px;
-    justify-content: center; 
-    z-index: 1; 
+        color: #ffffff84;
+        background-color: #0F0F0F;
+        position: absolute;
+        bottom: 3px;
+        width: 170px;
+        height: 26px;
+        margin-right: 20px;
+        z-index: 1;
     }
 
     .sportSelect {
@@ -58,7 +48,7 @@
     z-index: 0;
     }
     .react-dropdown-select-dropdown{
-        background-color: transparent;
+        background-color:  #0F0F0F;;
     }
     .countSelect{
         width: 200px;
