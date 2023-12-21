@@ -84,7 +84,7 @@ const LeagueList = () => {
         </div>
     )
          : (
-        <section>
+        <section className="league_list">
             {Object.entries(groupedData).map(([letter, leagues]) => (
             <div key={letter}>
                 <h3>{letter}</h3>
