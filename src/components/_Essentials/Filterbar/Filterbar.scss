@@ -1,37 +1,67 @@
 .dropDownWrapper{
-    padding-inline: 5%;
+    padding-top: 20px;
+    padding-inline: 4.5%;
     display: flex;
-    justify-content: flex-end;
     gap: 60px;
-    .allCountry{
-        background-color: transparent;
-        color: white;
-        padding: 5px;
-        border: 3px solid white;
-    }
+    justify-content: flex-end;
+    position: relative;
     
-    .allSports{
-        background-color: transparent;
-        color: white;
-        border: 3px solid white;
-    }
     .filterWrap{
         display: flex;
-
+        gap: 36px;
         div{
-            color: white;
-            max-width: fit-content;
-            height: 4vh;
-            align-items: center;
-            margin: 0 auto;
-            display: flex;
             border: 1px solid white;
-            background-color: transparent;
+            padding: 5px;
         }
     }
-    div{
-        width: 280px;
-        color: black;
+    .overlay-spo {
+        color: #ffffff84;
+        background-color: #0F0F0F;
+        position: absolute;
+        top: 28px;
+        left: 82%;
+        right: 0;
+        bottom: 0;
+        display: block;
+        align-items: center;
+        width: 170px;
+        height: 20px;
+        justify-content: center; 
+        z-index: 1; 
+        }
+
+        .countSelect {
+        width: 200px;
+        z-index: 0; 
+        }
+        .react-dropdown-select-dropdown{
+            background-color:#0F0F0F;
+        }
+    .overlay {
+    color: #ffffff84;
+    background-color: #0F0F0F;
+    position: absolute;
+    top: 28px;
+    left: 64%;
+    right: 0;
+    bottom: 0;
+    display: block;
+    align-items: center;
+    width: fit-content;
+    height: 20px;
+    justify-content: center; 
+    z-index: 1; 
+    }
+
+    .sportSelect {
+    width: 200px;
+    z-index: 0;
+    }
+    .react-dropdown-select-dropdown{
+        background-color: transparent;
+    }
+    .countSelect{
+        width: 200px;
+
     }
 }
-
