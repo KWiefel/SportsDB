@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterInputContext } from "../../Context/Context";
+import { FilterInputContext, SearchStatusContext } from "../../Context/Context";
 import data from "../../../assets/data/data.json";
 import country from "../../../assets/data/country.json";
 import './Filterbar.scss';
@@ -8,6 +8,7 @@ import './Filterbar.scss';
 const FilterBar = () => {
     const navigate = useNavigate();
     const { userInput, setUserInput } = useContext(FilterInputContext);
+    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
 
     const [sportOptions, setSportOptions] = useState([]);
     const [countryOptions, setCountryOptions] = useState([]);
@@ -32,21 +33,16 @@ const FilterBar = () => {
     const handleSportSelectChange = (event) => {
         const value = event.target.value;
         setUserInput([value, selectedValues[1]]);
-        navigate("/results");
+        setSearchStatus(true);
+        
     };
 
     const handleCountrySelectChange = (event) => {
         const value = event.target.value;
         setUserInput([selectedValues[0], value]);
-        navigate("/results");
+        setSearchStatus(true);
+        
     };
-
-    useEffect(() => {
-        console.log("Saved Values:", selectedValues);
-
-        // const userInputArray = [selectedValues[0], selectedValues[1]];
-        setUserInput(selectedValues);
-    }, [selectedValues, setUserInput, navigate]);
 
     const renderSelectedOptions = () => {
         return (
