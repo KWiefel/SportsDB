@@ -17,18 +17,18 @@ const DetailTeam = () => {
   console.log(filteredTeam);
 
   // get team id trough dynamic link
-  const idParam = useParams();
-
-  console.log(useParams());
+  const { idTeam } = useParams();
+  console.log("DETAIL-TEAM ID:", idTeam);
+  
 
   useEffect(() => {
     [...allLeagueData].forEach((team) => {
-      if (team.idTeam == "133604") {
+      if (team.idTeam === idTeam) {
         console.log(team);
         setFilteredTeam([team]);
       }
     });
-  }, [fetchStatus]);
+  }, [fetchStatus, idTeam]);
 
   return ( fetchStatus ? (
     <>
@@ -111,7 +111,9 @@ const DetailTeam = () => {
         </footer>
       </div>
     </>
-  ) : <img className="loading_animation" src={loadingAnimation} alt="" />
+  ) : <div className="loading_animation_container">
+    <img src={loadingAnimation} alt="" />
+    </div>
     
   );
 };
