@@ -10,14 +10,13 @@
       color: red;
       text-transform: uppercase;
       font-size: 6rem;
-      // position: absolute;
-      // left: 33vw;
-      // top: 25%;
       position: absolute;
-      top: 23%;
+      top: 28%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
+      width: 100%;
+      text-align: center;
     }
 
     .background_img {
@@ -197,6 +196,7 @@
     .detailteam__header {
       .detailteam_title {
         font-size: 4rem;
+        top: 23%;
       }
 
       .background_img {
