@@ -6,7 +6,6 @@ import DetailTeam from "./pages/DetailTeam";
 import Fetch from "./components/Fetch/Fetch";
 import {
   AllLeagueContext,
-  FetchCompleteContext,
   FilterInputContext,
   SearchStatusContext
 } from "./components/Context/Context";
@@ -20,20 +19,15 @@ function App() {
   console.log("App.jsx", allLeagueData);
 
   // states for search functions
-  const [userInput, setUserInput] = useState([]);
+  const [userInput, setUserInput] = useState("");
   const [searchStatus, setSearchStatus] = useState(false);
   console.log("userInput in App.jsx", userInput);
-
-  // state for checking initial fetch status
-  const [fetchStatus, setFetchStatus] = useState(false);
-  console.log("fetchStatus", fetchStatus);
 
   return (
     <div >
     
     <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
       <FilterInputContext.Provider value={{userInput, setUserInput}}>
-        <FetchCompleteContext.Provider value={{fetchStatus, setFetchStatus}}>
         <SearchStatusContext.Provider value={{searchStatus, setSearchStatus}}>
           <Fetch/>
           <Navbar/>
@@ -44,7 +38,6 @@ function App() {
             <Route path="/detail-team/:idTeam" element={<DetailTeam />} />
           </Routes>
         </SearchStatusContext.Provider>
-        </FetchCompleteContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>
 

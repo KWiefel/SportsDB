@@ -3,6 +3,8 @@ import data from "../../assets/data/data.json";
 import './LeagueList.scss'
 import { useContext, useEffect, useState } from "react";
 
+import noResultsScreen from "/no_results.jpg"
+
 // ======================== filterList merge =============================
 import { AllLeagueContext, FilterInputContext, SearchStatusContext } from "./../Context/Context";
 // =======================================================================
@@ -27,6 +29,8 @@ const LeagueList = () => {
     const { userInput, setUserInput } = useContext(FilterInputContext);
     const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
 
+    console.log("RESULTS: ", userInput);
+
     // component state
     const [results, setResults] = useState([]);
 
@@ -34,29 +38,34 @@ const LeagueList = () => {
     useEffect(() => {
         // const keyword = userInput[0].trim().toLowerCase()
         const searchResults = [...allLeagueData].filter((team) => {
-            if (userInput.length < 2) {
-                if (team.strTeam.toLowerCase().includes(userInput)) {
+            if (!userInput.includes(",")) {
+                if (team.strTeam.toLowerCase().includes(userInput.toLowerCase().trim())) {
                     return team;
-                } else if (team.strStadium.toLowerCase().includes(userInput)){
+                } else if (team.strStadium.toLowerCase().includes(userInput.toLowerCase().trim())){
                     return team;
-                } else if(team.strSport.includes(userInput[0])) {
+                } else if(team.strSport.includes(userInput.slice(0, userInput.indexOf(",")))) {
                     return team;
-                } else if(team.strCountry.includes(userInput[1])) {
+                } else if(team.strCountry.includes(userInput.slice(userInput.indexOf(",") + 1))) {
                     return team;
                 } 
+            }else{
+                if(team.strSport.includes(userInput.slice(0, userInput.indexOf(","))) && team.strCountry.includes(userInput.slice(userInput.indexOf(",") + 1))) {
+                    return team;
+                }
             }
-                
         })
                 setResults(searchResults);
+                console.log("FILTERED RESULTS: ",searchResults);
         }, [userInput])
 
 
     // ==================================================================
 
     return ( searchStatus ? (
-    <section>
+        results.length > 0 ? (
+        <section className="results_container">
         <div>
-        <ul>
+        <ul >
         {results.map((team, index) => (
                     <li key={index}>
                     <Link to={`/detail-team/${team.idTeam}`}><span>{team.strTeam}</span> <span>{team.strSport}</span></Link>
@@ -64,7 +73,16 @@ const LeagueList = () => {
             ))}
                 </ul>
                 </div>
-                </section>)
+                </section>
+                
+        ) : 
+        <div className="no_results_found">
+            <p>Unfortunately, no matches for 
+                {!userInput.includes(",") ? (` ${userInput}` ) :(` ${userInput.slice(0, userInput.indexOf(","))} in ${userInput.slice(userInput.indexOf(",") + 1)}`)
+                }</p>
+        <img src={noResultsScreen} alt="no results" />
+        </div>
+    )
          : (
         <section>
             {Object.entries(groupedData).map(([letter, leagues]) => (

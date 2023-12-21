@@ -16,7 +16,7 @@ const Navbar = () => {
     // set global keyword state to user input
     const handleSearchInput = (event) =>
     {
-        setUserInput([event.target.value.toLowerCase().trim()]);
+        setUserInput(event.target.value);
         navigate('/');
         setSearchStatus(true);
     }
@@ -38,7 +38,7 @@ const Navbar = () => {
 
     const handleLogoClick = () => {
         setSearchStatus(false);
-        setUserInput([]);
+        setUserInput("");
     }
 
     return ( 
