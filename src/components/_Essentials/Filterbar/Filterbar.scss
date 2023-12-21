@@ -10,13 +10,13 @@
         display: flex;
         gap: 36px;
         div{
-            border: 1px solid white;
+            border: 1px solid #E9EAEC;
             padding: 5px;
         }
     }
     .overlay-spo {
         color: #ffffff84;
-        background-color: #0F0F0F;
+        background-color: #24272B;
         position: absolute;
         bottom: 3px;
         width: 170px;
@@ -30,11 +30,11 @@
         z-index: 0; 
         }
         .react-dropdown-select-dropdown{
-            background-color:#0F0F0F;
+            background-color:#24272B
         }
     .overlay {
         color: #ffffff84;
-        background-color: #0F0F0F;
+        background-color: #24272B;
         position: absolute;
         bottom: 3px;
         width: 170px;
@@ -48,7 +48,7 @@
     z-index: 0;
     }
     .react-dropdown-select-dropdown{
-        background-color:  #0F0F0F;;
+        background-color:  #24272B;
     }
     .countSelect{
         width: 200px;

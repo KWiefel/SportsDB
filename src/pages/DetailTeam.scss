@@ -1,5 +1,5 @@
 .detailteam__wrapper {
-  background-color: #0F0F0F;
+  background-color: #24272B;
 
   .detailteam__header {
     font-family: "Montserrat";
@@ -43,6 +43,7 @@
           font-size: 2.25rem;
           font-weight: 700;
           margin: 8px;
+          
           // width: 7ch;
         }
 
@@ -175,7 +176,7 @@
   .detailteam__wrapper {
 
     // background-color: red;
-    .detailteam__header {
+      .detailteam__header {
       .detailteam_title {
         font-size: 5rem;
       }
@@ -368,6 +369,17 @@
 }
 
 .detailteam__wrapper.dark-mode {
-  background-color: beige; 
-  color: #fff; 
+  background-color: #E9EAEC; 
+  color: #24272B; 
+  .detailteam_title{
+    color: #3538e8;
+  }
+  .description__wrapper {
+    .description_span {
+      color:  #3538e8;
+    }  
+    }
+    .background_img {
+      color: #24272B;
+  }
 }

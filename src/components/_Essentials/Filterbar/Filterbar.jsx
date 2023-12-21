@@ -96,7 +96,7 @@ const FilterBar = () => {
                 options={countryOptions}
                 values={selectedValues.filter(filter => filter.type === 'country')}
                 dropdownHandleRenderer={({ state }) => (
-                    <span>{state.dropdown ? '▲' : '▼'}</span>
+                    <span className="dropArrow">{state.dropdown ? '▲' : '▼'}</span>
                 )}
                 onChange={(values) => handleSelectChange(values, 'country')}
                 onClearClick={() => handleRemoveFilter('country', selectedValues.find(filter => filter.type === 'country').value)}
@@ -112,7 +112,7 @@ const FilterBar = () => {
                 options={sportOptions}
                 values={selectedValues.filter(filter => filter.type === 'sport')}
                 dropdownHandleRenderer={({ state }) => (
-                    <span>{state.dropdown ? '▲' : '▼'}</span>
+                <span className="dropArrow">{state.dropdown ? '▲' : '▼'}</span>
                 )}
                 onChange={(values) => handleSelectChange(values, 'sport')}
             />
