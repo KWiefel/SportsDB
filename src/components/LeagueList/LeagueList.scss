@@ -1,7 +1,7 @@
-section {
-    padding-left: 10%;
+.league_list {
+    padding-left: 5%;
     padding-top: 5%;
-    padding-bottom: 20%;
+    // padding-bottom: 20%;
 
     h2 {
         text-align: center;
@@ -13,12 +13,12 @@ section {
         padding-bottom: 6.25rem;
 
         h3 {
-            font-size: 8.25rem;
+            font-size: 12.25rem;
             -webkit-text-stroke-width: 3px;
             -webkit-text-stroke-color: #E83539;
             color: #0F0F0F;
             font-family: "Arial";
-            margin-bottom: -4.375rem;
+            margin-bottom: -6rem;
             margin-left: -3.125rem;
 
         }
@@ -33,7 +33,7 @@ section {
                     text-decoration: none;
 
                     span:nth-of-type(1) {
-
+                        padding-left: 3%;
                         font-family: "Montserrat";
                         font-weight: bold;
                     }
@@ -49,4 +49,161 @@ section {
             }
         }
     }
+}
+// =============================================================
+//                  FILTER RESULTS STYLING START 
+// =============================================================
+.results_container{
+    padding-inline: 0;
+
+    h2 {
+            text-align: center;
+            font-size: 5rem;
+            font-family: "Inter";
+        }
+    
+        div {
+            padding-bottom: 6.25rem;
+            padding-top: 6.25rem;
+    
+            ul {
+                
+    
+                li {
+                    list-style: none;
+                    font-size: 2.6rem;
+                    padding-bottom: 2.25rem;
+    
+                    a {
+                        text-decoration: none;
+    
+                        span:nth-of-type(1) {
+                            font-family: "Montserrat";
+                            font-weight: bold;
+                        }
+    
+                        span:nth-of-type(2) {
+                            font-size: 1.5rem;
+                            // font-family: "Open Sans";
+                            font-family: "Montserrat";
+                        }
+                    }
+    
+    
+                }
+            }
+        }
+}
+
+.no_results_found{
+    margin-inline: auto;
+    padding-inline: 3%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6.25rem;
+    padding-top: 6.25rem;
+    text-align: center;
+
+        p {
+            align-self: center;
+            font-size: 24px;
+            padding-bottom: 2.25rem;
+            font-family: "Montserrat";
+            // font-weight: bold;
+        }
+
+        img{
+            align-self: center;
+            max-width: 69%;
+            filter: grayscale(1);
+        }
+}
+// =============================================================
+//                  FILTER RESULTS STYLING END 
+// =============================================================
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    .league_list {
+    
+        h2 {
+
+        }
+    
+        div {
+    
+            h3 {
+    
+            }
+    
+            ul {
+    
+                li {
+                    font-size: 1.4rem !important;
+
+                    a {
+    
+                        span:nth-of-type(1) {
+    
+                        }
+
+                        span:nth-of-type(2) {
+
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    .league_list {
+    
+        h2 {
+
+        }
+    
+        div {
+    
+            h3 {
+    
+            }
+    
+            ul {
+    
+                li {
+                    font-size: 2rem;
+
+                    a {
+    
+                        span:nth-of-type(1) {
+    
+                        span:nth-of-type(2) {
+
+                        }
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { 
+
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) { 
+
 }
