@@ -47,6 +47,7 @@ const FilterBar = () => {
             if (!selectedValues.some(filter => filter.type === type && filter.value === value)) {
                 // Füge das neue Element zum bestehenden Array hinzu
                 setSelectedValues(prevValues => [...prevValues, { type, value }]);
+
             }
     
             if (type === 'country') {
@@ -58,7 +59,6 @@ const FilterBar = () => {
     const handleRemoveFilter = (filterType, filterValue) => {
         const updatedFilters = selectedValues.filter(filter => !(filter.type === filterType && filter.value === filterValue));
         setSelectedValues(updatedFilters);
-        setDropdownKey(prevKey => prevKey + 1);
         setIsCountrySelected(false); 
         // Zurücksetzen, wenn ein Land entfernt wird
     };
@@ -89,12 +89,7 @@ const FilterBar = () => {
     return (
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
-            <div className="overlay">
-                All Countries
-            </div>
-            <div className="overlay-spo">
-                All Sports
-            </div>
+            <div>
             <Select
                 className="countSelect"
                 options={countryOptions}
@@ -105,6 +100,12 @@ const FilterBar = () => {
                 onChange={(values) => handleSelectChange(values, 'country')}
                 onClearClick={() => handleRemoveFilter('country', selectedValues.find(filter => filter.type === 'country').value)}
             />
+            <div className="overlay">
+                All Countries
+            </div>
+            </div>
+
+            <div>
             <Select
                 className="sportSelect"
                 options={sportOptions}
@@ -114,6 +115,10 @@ const FilterBar = () => {
                 )}
                 onChange={(values) => handleSelectChange(values, 'sport')}
             />
+            <div className="overlay-spo">
+                All Sports
+            </div>
+            </div>
         </div>
     );
 };
