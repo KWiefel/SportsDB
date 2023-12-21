@@ -47,6 +47,7 @@ const FilterBar = () => {
             if (!selectedValues.some(filter => filter.type === type && filter.value === value)) {
                 // Füge das neue Element zum bestehenden Array hinzu
                 setSelectedValues(prevValues => [...prevValues, { type, value }]);
+
             }
     
             if (type === 'country') {

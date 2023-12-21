@@ -5,10 +5,12 @@ import {
   AllLeagueContext,
 } from "../components/Context/Context";
 import loadingAnimation from "/sportdb_loading.gif"
+import { useDarkmode } from "../components/Context/DarkModeContext";
 
 const DetailTeam = () => {
   // get context
   const { allLeagueData } = useContext(AllLeagueContext);
+
 
   // component state
   const [filteredTeam, setFilteredTeam] = useState([]);
@@ -35,10 +37,29 @@ const DetailTeam = () => {
     };
   }, [dataLoading, idTeam]);
 
+
   return ( dataAvailable ? (
+
+      	//=======DarkMode=================
+	const { isDarkMode, setIsDarkMode } = useDarkmode(false);
+	const body = document.div;
+	const toggleDarkMode = () => {
+		setIsDarkMode(!isDarkMode);
+		if (!isDarkMode) {
+			body.classList.remove("lightMode");
+			body.classList.add("darkMode");
+		} else {
+			body.classList.remove("darkMode");
+			body.classList.add("lightMode");
+		}
+	};
+	useEffect(() => {}, [isDarkMode]);
+
+  return ( fetchStatus ? (
+
     <>
       {/* <Link to="/"> Back Home</Link> */}
-      <div className={`detailteam__wrapper`}>
+      <div className={`detailteam__wrapper ${isDarkMode ? "dark-mode" : ""}`}>
         <header className="detailteam__header">
           <h1 className="detailteam_title">{filteredTeam[0]?.strTeam}</h1>
           <div className="background_img">
