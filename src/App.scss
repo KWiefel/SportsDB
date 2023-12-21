@@ -17,6 +17,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 html {
@@ -24,18 +25,79 @@ html {
 }
 
 body {
-  background-color: #0F0F0F;
-  color: #fff;
+  background-color: #24272B;
+  color: #E9EAEC;
 }
 
 a {
-  color: #fff;
+  color: #E9EAEC;
+}
+
+button{
+  background: transparent;
+  border: none;
+  margin: auto;
+  &:hover{
+    cursor: pointer;
+    filter: brightness(3);
+  }
 }
 
 input {
-  background-color: #000;
+  background-color:transparent;
+  border-color: #E9EAEC;
 }
 
 .darkMode {
-  background-color: beige;
+
+  background-color:#E9EAEC;
+  fill: #3538e8;;
+  .dropDownWrapper{
+    .overlay-spo{
+      background-color: #E9EAEC;
+      color: #24272B;
+    }
+    .overlay{
+      background-color: #E9EAEC;
+      color: #24272B;
+    }
+    .react-dropdown-select-dropdown{
+      background-color: #E9EAEC;
+      color: #24272B;
+    }
+    .sportSelect{
+      color: #24272B;
+    }
+    .countSelect{
+      color: #24272B;
+    }
+  }
+  .navbar_container{
+    .searchbar{
+      input{
+        border: 3px solid #3538e8;
+        color: #24272B;
+    }
+    img{
+      filter: invert(100%);
+    }
+  }
+}
+  .hero_header{
+    h1{
+      color: #3538e8;
+    }
+  }
+  a{
+    color: #24272B;
+  }
+  .league_list {
+    div{
+
+      h3{
+        -webkit-text-stroke-color:#3538e8;
+        color: #E9EAEC;
+      }
+    }
+  }
 }

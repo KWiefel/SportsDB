@@ -5,6 +5,7 @@ import logo from '/union.svg'
 import frame from '/frame.png'
 import "./Navbar.scss"
 import { useDarkmode } from "../../Context/DarkModeContext";
+import DarkMode from "../../../assets/svg/DarkMode";
 const Navbar = () => {
     
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ const Navbar = () => {
             <button
 			className='darkModeButton'
 			onClick={toggleDarkMode}>
-            ModeToggle
+            <DarkMode/>
 			</button>
             </div>
             <div className="searchbar">
