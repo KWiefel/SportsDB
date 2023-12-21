@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import {
   AllLeagueContext,
-  FetchCompleteContext,
 } from "../components/Context/Context";
 import loadingAnimation from "/sportdb_loading.gif"
 import { useDarkmode } from "../components/Context/DarkModeContext";
@@ -11,11 +10,12 @@ import { useDarkmode } from "../components/Context/DarkModeContext";
 const DetailTeam = () => {
   // get context
   const { allLeagueData } = useContext(AllLeagueContext);
-  const { fetchStatus } = useContext(FetchCompleteContext);
 
 
   // component state
   const [filteredTeam, setFilteredTeam] = useState([]);
+  const [ dataLoading, setDataLoading ] = useState(false);
+  const [ dataAvailable, setDataAvailable ] = useState(false);
   console.log(filteredTeam);
 
   // get team id trough dynamic link
@@ -24,13 +24,21 @@ const DetailTeam = () => {
   
 
   useEffect(() => {
-    [...allLeagueData].forEach((team) => {
-      if (team.idTeam === idTeam) {
-        console.log(team);
-        setFilteredTeam([team]);
-      }
-    });
-  }, [fetchStatus, idTeam]);
+    if (allLeagueData.length < 840) {
+      setDataLoading(!dataLoading);
+    } else {
+      [...allLeagueData].forEach((team) => {
+        if (team.idTeam === idTeam) {
+          console.log(team);
+          setFilteredTeam([team]);
+        }
+        setDataAvailable(true);
+    })
+    };
+  }, [dataLoading, idTeam]);
+
+
+  return ( dataAvailable ? (
 
       	//=======DarkMode=================
 	const { isDarkMode, setIsDarkMode } = useDarkmode(false);
@@ -48,6 +56,7 @@ const DetailTeam = () => {
 	useEffect(() => {}, [isDarkMode]);
 
   return ( fetchStatus ? (
+
     <>
       {/* <Link to="/"> Back Home</Link> */}
       <div className={`detailteam__wrapper ${isDarkMode ? "dark-mode" : ""}`}>

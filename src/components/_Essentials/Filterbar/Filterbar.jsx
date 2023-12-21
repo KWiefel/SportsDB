@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterInputContext } from "../../Context/Context";
+import { FilterInputContext, SearchStatusContext } from "../../Context/Context";
 import data from "../../../assets/data/data.json";
 import countryList from "../../../assets/data/country.json";
 import './Filterbar.scss';
 import Select from 'react-dropdown-select';
 
 const FilterBar = () => {
-    const navigate = useNavigate();
     const { setUserInput } = useContext(FilterInputContext);
+    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
 
     const [sportOptions, setSportOptions] = useState([]);
     const [selectedValues, setSelectedValues] = useState([]);
@@ -34,9 +34,9 @@ const FilterBar = () => {
     const selectedCountry = selectedValues.find(filter => filter.type === 'country');
 
     setUserInput([
-        selectedSport ? selectedSport.value.toLowerCase() : '',
-        selectedCountry ? selectedCountry.value.toLowerCase() : ''
-    ].filter(Boolean).join(''));
+        selectedSport ? selectedSport.value : '',
+        selectedCountry ? selectedCountry.value : ''
+    ].filter(Boolean).join(','));
 }, [selectedValues, setUserInput]);
 
     const handleSelectChange = (selectedOption, type) => {
@@ -54,6 +54,7 @@ const FilterBar = () => {
                 setIsCountrySelected(true);
             }
         }
+        setSearchStatus(true);
     };
 
     const handleRemoveFilter = (filterType, filterValue) => {
