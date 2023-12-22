@@ -13,11 +13,11 @@
   src: url(../src/assets/fonts/Inter/Inter-Regular.ttf);
 }
 
-* {
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
+
 }
 
 html {
@@ -33,16 +33,14 @@ a {
   color: #E9EAEC;
 }
 
-button{
+button {
   background: transparent;
   border: none;
   margin: auto;
-  &:hover{
-    cursor: pointer;
-    filter: brightness(3);
-  svg{
 
-    &:hover{
+  svg {
+
+    &:hover {
       cursor: pointer;
       transform: scaleX(1.1);
 
@@ -51,68 +49,81 @@ button{
 }
 
 input {
-  background-color:transparent;
+  background-color: transparent;
   border-color: #E9EAEC;
 }
 
 .darkMode {
 
-  background-color:#E9EAEC;
-  fill: #3538e8;;
-  .dropDownWrapper{
-    .filterWtrap{
-      align-items:center;
+  background-color: #E9EAEC;
+  fill: #3538e8;
+  ;
+
+  .dropDownWrapper {
+    .filterWtrap {
+      align-items: center;
     }
-    .overlay-spo{
+
+    .overlay-spo {
       background-color: #E9EAEC;
       color: #0f0f0f;
     }
-    .overlay{
+
+    .overlay {
       background-color: #E9EAEC;
       color: #0f0f0f;
     }
-    .react-dropdown-select-dropdown{
+
+    .react-dropdown-select-dropdown {
       background-color: #E9EAEC;
       color: #0f0f0f;
     }
-    .sportSelect{
+
+    .sportSelect {
       color: #0f0f0f;
     }
-    .countSelect{
+
+    .countSelect {
       color: #0f0f0f;
     }
   }
-  .navbar_container{
-    .dark-mode_wrapper{
-      .darkModeButton{
-        svg{
+
+  .navbar_container {
+    .dark-mode_wrapper {
+      .darkModeButton {
+        svg {
           fill: #3538e8;
         }
       }
     }
-    .searchbar{
-      input{
+
+    .searchbar {
+      input {
         border: 3px solid #3538e8;
         color: #0f0f0f;
-    }
-    img{
-      filter: invert(100%);
+      }
+
+      img {
+        filter: invert(100%);
+      }
     }
   }
-}
-  .hero_header{
-    h1{
+
+  .hero_header {
+    h1 {
       color: #3538e8;
     }
   }
-  a{
+
+  a {
     color: #0f0f0f;
   }
-  .league_list {
-    .league_list_item{
 
-      h3{
-        -webkit-text-stroke-color:#3538e8;
+  .league_list {
+    .league_list_item {
+
+      h3 {
+        -webkit-text-stroke-color: #3538e8;
         color: #E9EAEC;
       }
     }

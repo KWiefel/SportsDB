@@ -71,12 +71,12 @@ const LeagueList = () => {
     return ( searchStatus ? (
         <section className="league_list">
             {Object.entries(results).map(([letter, leagues]) => (
-            <div key={letter}>
+            <div className="league_list_item" key={letter}>
                 <h3>{letter}</h3>
                 <ul>
                 {leagues.map(league => (
                     <li key={league.idLeague}>
-                    <Link to={`/detail-league/${league.idLeague}`}><span>{league.strLeague}</span> <span>{league.strSport}</span></Link>
+                    <Link className="underline-hover" to={`/detail-league/${league.idLeague}`}><span>{league.strLeague}</span> <span>{league.strSport}</span></Link>
                     </li>
                 ))}
                 </ul>
