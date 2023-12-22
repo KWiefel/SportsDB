@@ -118,19 +118,19 @@ const DetailTeam = () => {
           </section>
         </main>
         <footer className="detailteam__footer">
-          <a className="link" href={`https://${filteredTeam[0]?.strWebsite}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strWebsite}`} target="_blank">
             <p className="subtitle">Website</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strFacebook}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strFacebook}`} target="_blank">
             <p className="subtitle">Facebook</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strTwitter}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strTwitter}`} target="_blank">
             <p className="subtitle">Twitter</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strInstagram}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strInstagram}`} target="_blank">
             <p className="subtitle">Instagram</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strYoutube}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strYoutube}`} target="_blank">
             <p className="subtitle">Youtube</p>
           </a>
         </footer>

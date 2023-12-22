@@ -18,23 +18,22 @@ const DetailLeague = () => {
   }, [allLeagueData, id]);
 
   return (
-    <>
+    <main>
       <section className="detail_league_header">
         <img src="https://source.unsplash.com/random/300×300" alt="" />
-        <h2>DetailLeague</h2>
       </section>
       <section className="detail_league_main">
         {allTeams.length > 0 ? (
           <ul>
             {allTeams.map((team) => (
-              <Link to={`/detail-team/${team.idTeam}`}><li key={team.idTeam}><span>{team.strTeam}</span> {team.strStadiumLocation}</li></Link>
+              <Link to={`/detail-team/${team.idTeam}`} className="scale-hover"><li key={team.idTeam}><span>{team.strTeam}</span> {team.strStadiumLocation}</li></Link>
             ))}
           </ul>
         ) : (
           <p>Keine Teams gefunden.</p>
         )}
       </section>
-    </>
+    </main>
   );
 };
 

@@ -1,0 +1,35 @@
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: 2px solid red;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden; 
+    // transition: background-position 0.3s ease; /* Übergangseffekt für den Hintergrund */
+    transition: .5s ease-out;
+}
+
+.scroll-to-top-button:hover {
+    background-color: red;
+}
+
+
+//   div {
+//     font: 22px Arial;
+//     display: inline-block;
+//     padding: 1em 2em;
+//     text-align: center;
+//     color: white;
+//     background: red; /* default color */
+
+//     /* "to left" / "to right" - affects initial color */
+//     background: linear-gradient(to left, salmon 50%, lightblue 50%) right;
+//     background-size: 200%;
+//     transition: .5s ease-out;
+// }
+// div:hover {
+//     background-position: left;
+// }

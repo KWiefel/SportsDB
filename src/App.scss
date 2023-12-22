@@ -39,7 +39,7 @@ button{
   margin: auto;
   &:hover{
     cursor: pointer;
-    filter: brightness(3);
+    // filter: brightness(3);
   }
 }
 
@@ -92,7 +92,7 @@ input {
     color: #24272B;
   }
   .league_list {
-    div{
+    .league_list_item{
 
       h3{
         -webkit-text-stroke-color:#3538e8;
