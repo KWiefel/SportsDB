@@ -54,8 +54,7 @@ const DetailTeam = () => {
 	};
 	useEffect(() => {}, [isDarkMode]);
 
-  return ( dataAvailable ? (
-
+  return ( dataAvailable  ? (
     <>
       {/* <Link to="/"> Back Home</Link> */}
       <div className={`detailteam__wrapper ${isDarkMode ? "dark-mode" : ""}`}>
