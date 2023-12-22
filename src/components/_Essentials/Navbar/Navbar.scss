@@ -39,6 +39,8 @@
 
     .searchbar
     {
+        display: flex;
+        gap: 20px;
         position: relative;
         input{
             border: 3px solid white;
