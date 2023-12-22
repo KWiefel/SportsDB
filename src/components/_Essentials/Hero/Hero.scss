@@ -6,7 +6,8 @@
   position: relative;
 
   div{
-    background: url("home_hero_background.jpeg") center / cover no-repeat;
+    // background: url("home_hero_background.jpeg") center / cover no-repeat;
+    background: url("./../../../assets/img/home_hero_background.jpeg") center / cover no-repeat;
     background-origin: padding-box;
     background-size: 980px 680px;
     height: 100%;

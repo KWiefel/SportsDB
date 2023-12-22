@@ -12,7 +12,7 @@ import {
 } from "./components/Context/Context";
 import { useEffect, useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
-import FilterList from "./components/FilterList/FilterListCOPY";
+import FilterList from "./components/FilterList/FilterList";
 import { DarkModeProvider } from "./components/Context/DarkModeContext";
 import BtnUp from "./components/_Essentials/BtnUp/BtnUp";
 
