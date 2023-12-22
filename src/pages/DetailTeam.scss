@@ -11,7 +11,7 @@
       text-transform: uppercase;
       font-size: 6rem;
       position: absolute;
-      top: 28%;
+      top: 27%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
@@ -38,18 +38,23 @@
         text-align: center;
         margin: 0 auto;
 
-        .subtitle {
-          text-transform: uppercase;
-          font-size: 2.25rem;
-          font-weight: 700;
-          margin: 8px;
-          
-          // width: 7ch;
+        div {
+          padding-bottom: 25px;
+
+          .subtitle {
+            text-transform: uppercase;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 8px;
+            
+            // width: 7ch;
+          }
+  
+          .subtitle_description {
+            font-family: "Montserrat";
+          }
         }
 
-        .subtitle_description {
-          font-family: "Montserrat";
-        }
       }
     }
   }
@@ -95,6 +100,11 @@
         line-height: 130%;
         text-transform: uppercase;
         margin-right: 24px;
+
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #E83539;
+        color: #0f0f0f;
+        font-family: "Arial";
       }
 
       .description_text {
@@ -106,11 +116,11 @@
     }
 
     .logo__wrapper {
-      padding: 0em;
+      padding: 100px;
       text-align: center;
 
       img {
-        width: 15%;
+        width: 30%;
         // padding-left: auto;
       }
     }
@@ -187,9 +197,13 @@
     }
 
     .facts__wrapper {
-      .subtitle {
-        font-size: 1.7rem;
+
+      div {
+        .subtitle {
+          font-size: 1.7rem;
+        }
       }
+      
     }
   }
 }
@@ -206,9 +220,13 @@
 
       .background_img {
         .facts__wrapper {
-          .subtitle {
-            font-size: 1.4rem;
+
+          div {
+            .subtitle {
+              font-size: 1.4rem;
+            }
           }
+          
         }
       }
     }
@@ -300,9 +318,13 @@
         }
 
         .facts__wrapper {
-          .subtitle {
-            font-size: 1.4rem;
+
+          div {
+            .subtitle {
+              font-size: 1.4rem;
+            }
           }
+          
         }
       }
     }
@@ -382,7 +404,9 @@
   }
   .description__wrapper {
     .description_span {
-      color:  blue;
+      color:  #fff;
+      -webkit-text-stroke-width: 3px;
+      -webkit-text-stroke-color: blue;
     }  
     }
     .background_img {

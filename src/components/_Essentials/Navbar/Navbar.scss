@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 4%;
+    height: 100px;
     
 
     .logo {
@@ -76,5 +77,11 @@
             left: 8px;
             top: 8px;
         }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .logo {
+        padding: 5px;
     }
 }

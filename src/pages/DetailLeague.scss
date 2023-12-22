@@ -184,7 +184,9 @@
 
     &:hover {
         transform: scale(1.1); // Ändere den Skalierungsfaktor nach Bedarf
-        background-color: gray;
+        background: rgb(0,0,0);
+background: linear-gradient(5deg, rgba(0,0,0,0.517266281512605) 0%, rgba(0,0,0,0.5676864495798319) 0%, rgba(211,208,208,1) 100%);
+        
     }
 }
 

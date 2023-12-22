@@ -54,7 +54,7 @@ const DetailTeam = () => {
 	};
 	useEffect(() => {}, [isDarkMode]);
 
-  return ( dataAvailable === false ? (
+  return ( dataAvailable ? (
 
     <>
       {/* <Link to="/"> Back Home</Link> */}
@@ -64,14 +64,22 @@ const DetailTeam = () => {
           <div className="background_img">
             <div className="img"></div>
             <div className="facts__wrapper">
-              <p className="subtitle">{filteredTeam[0]?.strCountry}</p>
-              <p className="subtitle_description">Country</p>
-              <p className="subtitle">{filteredTeam[0]?.strStadiumLocation}</p>
-              <p className="subtitle_description">Location</p>
-              <p className="subtitle">{filteredTeam[0]?.intFormedYear}</p>
-              <p className="subtitle_description">Established</p>
-              <p className="subtitle">{filteredTeam[0]?.strSport}</p>
-              <p className="subtitle_description">Sport</p>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strCountry}</p>
+                <p className="subtitle_description">Country</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strStadiumLocation}</p>
+                <p className="subtitle_description">Location</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.intFormedYear}</p>
+                <p className="subtitle_description">Established</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strSport}</p>
+                <p className="subtitle_description">Sport</p>
+              </div>
             </div>
             <img src={filteredTeam[0]?.strStadiumThumb} alt="" />
           </div>
