@@ -141,7 +141,7 @@ input {
 
   .league_list {
     .league_list_item {
-      
+
       h3 {
         -webkit-text-stroke-color: blue;
         color: #E9EAEC;
@@ -151,7 +151,7 @@ input {
     .underline-hover {
       position: relative;
       text-decoration: none;
-  
+      
       &:before {
         content: '';
         position: absolute;
@@ -162,169 +162,12 @@ input {
         transition: width 0.3s ease-in-out; // Ändere die Übergangszeit nach Bedarf
         z-index: -1;
       }
-  
       &:hover:before {
         width: 100%;
       }
     }
-
 }
 
 
 
-// @font-face {
-//   font-family: "Open Sans";
-//   src: url(../src/assets/fonts/Open_Sans/OpenSans-VariableFont_wdth_wght.ttf);
-// }
 
-// @font-face {
-//   font-family: "Montserrat";
-//   src: url(../src/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
-// }
-
-// @font-face {
-//   font-family: "Inter";
-//   src: url(../src/assets/fonts/Inter/Inter-Regular.ttf);
-// }
-
-// *{
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-
-// }
-
-// html {
-//   font-family: "Montserrat";
-// }
-
-// body {
-//   background-color: #0f0f0f;
-//   color: #E9EAEC;
-// }
-
-// a {
-//   color: #E9EAEC;
-// }
-
-// button {
-//   background: transparent;
-//   border: none;
-//   margin: auto;
-
-//   svg {
-
-//     &:hover {
-//       cursor: pointer;
-//       transform: scaleX(1.1);
-
-//     }
-//   }
-// }
-
-// input {
-//   background-color: transparent;
-//   border-color: #E9EAEC;
-// }
-
-
-// .darkMode {
-  
-//   #root{
-//     background-color: #E9EAEC;
-//     fill: blue;
-//     h2{
-//       color: blue;
-//       span{
-//         color: #0f0f0f;
-//       }
-//     }
-
-    
-
-//   .dropDownWrapper {
-//     .renderContainer{
-//       padding: 5px;
-//       border:1px solid  #0f0f0f;
-//       p{
-//         color: #0f0f0f;
-//         padding-top: 0.1rem;
-//       }
-//     }
-//     .filterWtrap {
-//       align-items: center;
-//     }
-
-//     .overlay-spo {
-//       background-color: #E9EAEC;
-//       color: #0f0f0f;
-//     }
-
-//     .overlay {
-//       background-color: #E9EAEC;
-//       color: #0f0f0f;
-//     }
-
-//     .react-dropdown-select-dropdown {
-//       background-color: #E9EAEC;
-//       color: #0f0f0f;
-//     }
-
-//     .sportSelect {
-//       color: #0f0f0f;
-//     }
-
-//     .countSelect {
-//       color: #0f0f0f;
-//     }
-//   }
-
-//   .navbar_container {
-//     .logo{
-//       border: 1px solid blue;
-//       background-color:blue;
-//       color: #E9EAEC;
-//     }
-//     .dark-mode_wrapper {
-//       .darkModeButton {
-//         svg {
-//           fill: blue;
-//         }
-//       }
-//     }
-
-//     .searchbar {
-//       input {
-//         border: 3px solid blue;
-//         color: #0f0f0f;
-//       }
-
-//       img {
-//         filter: invert(100%);
-//       }
-//     }
-//   }
-
-//   .hero_header {
-//     h1 {
-//       color: blue;
-//     }
-//   }
-
-//   a {
-//     color: #0f0f0f;
-//   }
-
-//   .league_list {
-//     .league_list_item {
-
-//       h3 {
-//         -webkit-text-stroke-color: blue;
-//         color: #E9EAEC;
-//       }
-//     }
-//   }
-  
-
-// }
-// }

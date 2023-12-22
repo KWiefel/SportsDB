@@ -113,7 +113,26 @@
                 }
             }
         }
-}
+    }
+    .underline-hover_filter_list {
+        position: relative;
+        text-decoration: none;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            border-bottom: 15px solid #E83539; // Ändere dies auf die gewünschte Farbe und Dicke
+            transition: width 0.3s ease-in-out; // Ändere die Übergangszeit nach Bedarf
+            z-index: -1;
+        }
+
+        &:hover:before {
+            width: 100%;
+        }
+    }
 
 .no_results_found{
     margin-inline: auto;
@@ -131,9 +150,15 @@
             font-family: "Montserrat";
             // font-weight: bold;
         }
-
+// HIER NOCHMAL SCHAUEN FALLS PROBLEME
         img{
             align-self: center;
+            max-width: 400px;
+            margin-top: 8vh;
+            height: 400px;
+            object-fit: cover;
+            filter: grayscale(0.9) brightness(0.3);
+            box-shadow: 0px 0px 30px 0px black;
             max-width: 69%;
             filter: grayscale(1);
         }

@@ -3,11 +3,11 @@ import data from "../../assets/data/data.json";
 import { useContext, useEffect, useState } from "react";
 import "./FilterList.scss"
 import noResultsScreen from "/no_results2.gif"
-import "./../_Essentials/Hero.scss"
+import "./../../components/_Essentials/Hero/Hero"
 
 // ======================== filterList merge =============================
 import { AllLeagueContext, FilterInputContext, SearchStatusContext, SelectedValueContext } from "../Context/Context";
-import Hero from "../_Essentials/Hero/Hero";
+import Hero from "./../../components/_Essentials/Hero/Hero";
 // =======================================================================
 
 const LeagueList = () => {
@@ -54,18 +54,17 @@ const LeagueList = () => {
 
     return (
   <>
-    
+  <Hero/>
       {searchStatus ? (
         results.length > 0 ? (
             <>
           <section className="results_container">
-            <h1>HEADER</h1>
             <div>
               {results.map((team, index) => (
                 <ul key={index}>
                   {/* <h3>{team.strLeague.charAt(0)}</h3> */}
-                  <li key={index}>
-                    <Link to={`/detail-team/${team.idTeam}`}>
+                  <li  key={index}>
+                    <Link className="underline-hover_filter_list" to={`/detail-team/${team.idTeam}`}>
                       <span>{team.strTeam}</span> <span>{team.strSport}</span>
                     </Link>
                   </li>
@@ -83,22 +82,7 @@ const LeagueList = () => {
           </div>
         )
       ) : (
-        <section className="league_list">
-          {Object.entries(groupedData).map(([letter, leagues]) => (
-            <div key={letter}>
-              <h3>{letter}</h3>
-              <ul>
-                {leagues.map((league) => (
-                  <li key={league.idLeague}>
-                    <Link to={`/detail-league/${league.idLeague}`}>
-                      <span>{league.strLeague}</span> <span>{league.strSport}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+        <p></p>
       )}
     
   </>

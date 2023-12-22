@@ -54,7 +54,7 @@ const DetailTeam = () => {
 	};
 	useEffect(() => {}, [isDarkMode]);
 
-  return ( dataAvailable ? (
+  return ( dataAvailable === false ? (
 
     <>
       {/* <Link to="/"> Back Home</Link> */}
