@@ -262,15 +262,13 @@
 
 // ============ LOADING ANIMATION BEGIN ====================
 .loading_animation_container {
-  // width: 500px;
   height: 500px;
   display: flex;
   
   filter: brightness(0.9);
   img{
     margin-inline: auto;
-    width: 500px;
-    width: 500px;
+    max-width: 500px;
     object-fit: contain;
     filter: contrast(1.21);
   }
