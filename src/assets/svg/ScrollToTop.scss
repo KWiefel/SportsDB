@@ -1,0 +1,33 @@
+.scroll-button{
+    border: transparent;
+    transform: rotate(-90deg);
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: hidden; 
+    transition: background-position 0.3s ease; /* Übergangseffekt für den Hintergrund */
+    transition: .5s ease-out;
+    z-index: 10;
+    
+    fill:  #e8353879;
+    &:hover{
+        height: 114px;
+        fill:  #E83539;
+    }
+}
+
+@media (max-width: 767.98px){
+    .scroll-button{
+        bottom: 100%;
+    }
+}
+
+@media (max-width: 575.98px){
+    .scroll-button{
+        bottom: 31%;
+        width: 70px;
+        height: 70px;
+    }
+}
