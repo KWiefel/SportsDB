@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #24272B;
+  background-color: #0f0f0f;
   color: #E9EAEC;
 }
 
@@ -39,7 +39,14 @@ button{
   margin: auto;
   &:hover{
     cursor: pointer;
-    // filter: brightness(3);
+    filter: brightness(3);
+  svg{
+
+    &:hover{
+      cursor: pointer;
+      transform: scaleX(1.1);
+
+    }
   }
 }
 
@@ -53,30 +60,40 @@ input {
   background-color:#E9EAEC;
   fill: #3538e8;;
   .dropDownWrapper{
+    .filterWtrap{
+      align-items:center;
+    }
     .overlay-spo{
       background-color: #E9EAEC;
-      color: #24272B;
+      color: #0f0f0f;
     }
     .overlay{
       background-color: #E9EAEC;
-      color: #24272B;
+      color: #0f0f0f;
     }
     .react-dropdown-select-dropdown{
       background-color: #E9EAEC;
-      color: #24272B;
+      color: #0f0f0f;
     }
     .sportSelect{
-      color: #24272B;
+      color: #0f0f0f;
     }
     .countSelect{
-      color: #24272B;
+      color: #0f0f0f;
     }
   }
   .navbar_container{
+    .dark-mode_wrapper{
+      .darkModeButton{
+        svg{
+          fill: #3538e8;
+        }
+      }
+    }
     .searchbar{
       input{
         border: 3px solid #3538e8;
-        color: #24272B;
+        color: #0f0f0f;
     }
     img{
       filter: invert(100%);
@@ -89,7 +106,7 @@ input {
     }
   }
   a{
-    color: #24272B;
+    color: #0f0f0f;
   }
   .league_list {
     .league_list_item{

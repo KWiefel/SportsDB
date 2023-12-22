@@ -69,14 +69,15 @@ const FilterBar = () => {
         return (
             <div className="filterWrap">
                 {selectedValues.map(filter => (
-                    <div key={`${filter.type}-${filter.value}`}>
+                    <div className="renderContainer">
+                    <p key={`${filter.type}-${filter.value}`}>
                         {filter.value}{" "}
                         <span
-                            style={{ cursor: "pointer", color: "white" }}
                             onClick={() => handleRemoveFilter(filter.type, filter.value)}
                         >
                             x
                         </span>
+                    </p>
                     </div>
                 ))}
             </div>
@@ -90,6 +91,7 @@ const FilterBar = () => {
     return (
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
+            <div className="selectContainer">
             <div>
             <Select
                 className="countSelect"
@@ -101,11 +103,10 @@ const FilterBar = () => {
                 onChange={(values) => handleSelectChange(values, 'country')}
                 onClearClick={() => handleRemoveFilter('country', selectedValues.find(filter => filter.type === 'country').value)}
             />
-            <div className="overlay">
+                        <div className="overlay">
                 All Countries
             </div>
             </div>
-
             <div>
             <Select
                 className="sportSelect"
@@ -118,6 +119,7 @@ const FilterBar = () => {
             />
             <div className="overlay-spo">
                 All Sports
+            </div>
             </div>
             </div>
         </div>
