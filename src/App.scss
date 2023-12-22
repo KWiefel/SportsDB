@@ -37,6 +37,9 @@ button{
   background: transparent;
   border: none;
   margin: auto;
+  &:hover{
+    cursor: pointer;
+    filter: brightness(3);
   svg{
 
     &:hover{
@@ -106,7 +109,7 @@ input {
     color: #0f0f0f;
   }
   .league_list {
-    div{
+    .league_list_item{
 
       h3{
         -webkit-text-stroke-color:#3538e8;
