@@ -54,6 +54,12 @@ input {
 }
 
 .darkMode {
+  .scroll-button{
+    fill: rgba(0, 0, 255, 0.47);
+    &:hover{
+      fill: blue;
+    }
+  }
       h2{
       color: blue!important;
       span{
@@ -95,10 +101,12 @@ input {
     }
 
     .sportSelect {
+      border: 1px solid #0f0f0f;
       color: #0f0f0f;
     }
 
     .countSelect {
+      border: 1px solid #0f0f0f;
       color: #0f0f0f;
     }
   }
