@@ -1,6 +1,7 @@
 .league_list {
     padding-left: 5%;
     padding-top: 5%;
+    transition: all 0.5s linear;
     // padding-bottom: 20%;
 
     h2 {
@@ -54,7 +55,7 @@
 //                  FILTER RESULTS STYLING START 
 // =============================================================
 .results_container{
-    padding-inline: 0;
+    padding-inline: 3%;
 
     h2 {
             text-align: center;
@@ -113,9 +114,10 @@
         }
 
         img{
+            border-radius: 50%;
             align-self: center;
-            max-width: 69%;
-            filter: grayscale(1);
+            max-width: 55%;
+            filter: grayscale(0.9) brightness(0.5);
         }
 }
 // =============================================================

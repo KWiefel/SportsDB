@@ -45,13 +45,14 @@
 
     .sportSelect {
     width: 200px;
-    z-index: 0;
+    z-index: 1;
     }
     .react-dropdown-select-dropdown{
         background-color:  #24272B;
     }
     .countSelect{
         width: 200px;
+        z-index: 1;
 
     }
 }

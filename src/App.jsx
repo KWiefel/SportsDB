@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import Home from "./pages/Home";
 import DetailLeague from "./pages/DetailLeague";
@@ -7,11 +7,12 @@ import Fetch from "./components/Fetch/Fetch";
 import {
   AllLeagueContext,
   FilterInputContext,
-  SearchStatusContext
+  SearchStatusContext,
+  SelectedValueContext
 } from "./components/Context/Context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
-import FilterList from "./components/FilterList/FilterList";
+import FilterList from "./components/FilterList/FilterListCOPY";
 import { DarkModeProvider } from "./components/Context/DarkModeContext";
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
   console.log("App.jsx", allLeagueData);
 
   // states for search functions
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState([]);
   const [searchStatus, setSearchStatus] = useState(false);
-  console.log("userInput in App.jsx", userInput);
+  const [ selectedOptions, setSelectedOptions] = useState([]);
+
 
   return (
     <div >
@@ -30,6 +32,7 @@ function App() {
     <AllLeagueContext.Provider value={{ allLeagueData, setAllLeagueData }}>
       <FilterInputContext.Provider value={{userInput, setUserInput}}>
         <SearchStatusContext.Provider value={{searchStatus, setSearchStatus}}>
+          <SelectedValueContext.Provider value={{ selectedOptions, setSelectedOptions }}>
           <Fetch/>
           <Navbar/>
           <Routes>
@@ -38,6 +41,7 @@ function App() {
             <Route path="/detail-league/:id" element={<DetailLeague />} />
             <Route path="/detail-team/:idTeam" element={<DetailTeam />} />
           </Routes>
+          </SelectedValueContext.Provider>
         </SearchStatusContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>

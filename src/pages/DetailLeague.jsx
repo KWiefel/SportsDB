@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AllLeagueContext } from "../components/Context/Context";
 import { Link, useParams } from "react-router-dom";
+import loadingAnimation from "/sportdb_loading.gif"
+
+import Soccer from "/Soccer.jpg"
 import './DetailLeague.scss'
 
 const DetailLeague = () => {
   const { allLeagueData } = useContext(AllLeagueContext);
   const [allTeams, setAllTeams] = useState([]);
+  const [sports, setSports] = useState("");
 
   console.log(allTeams);
 
@@ -15,13 +19,17 @@ const DetailLeague = () => {
     // Filtere die Teams entsprechend der Liga-ID
     const filteredTeams = allLeagueData.filter((team) => team.idLeague === id);
     setAllTeams(filteredTeams);
+    console.log(allTeams);
   }, [allLeagueData, id]);
 
-  return (
+  return ( allTeams.length > 0 ? (
     <>
       <section className="detail_league_header">
-        <img src="https://source.unsplash.com/random/300×300" alt="" />
-        <h2>DetailLeague</h2>
+        <div className="background_container">
+        <img src={`/${allTeams[0]?.strSport}.jpg`} alt="" />
+        </div>
+        <h2>{allTeams[0]?.strLeague} <span>{allTeams[0]?.strSport}</span></h2>
+
       </section>
       <section className="detail_league_main">
         {allTeams.length > 0 ? (
@@ -35,6 +43,10 @@ const DetailLeague = () => {
         )}
       </section>
     </>
+  ): <div className="loading_animation_container">
+    <img src={loadingAnimation} alt="" />
+    </div>
+    
   );
 };
 
