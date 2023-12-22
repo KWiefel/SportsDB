@@ -12,14 +12,13 @@ const Navbar = () => {
     
     // get global keyword state setter
     const { userInput, setUserInput } = useContext(FilterInputContext);
-    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext); 
+    const { setSearchStatus } = useContext(SearchStatusContext)
 
     // set global keyword state to user input
     const handleSearchInput = (event) =>
     {
-        setUserInput(event.target.value);
-        navigate('/');
-        setSearchStatus(true);
+        setUserInput([event.target.value]);
+        navigate('/results');
     }
 
     	//=======DarkMode=================
@@ -39,7 +38,7 @@ const Navbar = () => {
 
     const handleLogoClick = () => {
         setSearchStatus(false);
-        setUserInput("");
+        setUserInput([]);
     }
 
     return ( 
@@ -59,6 +58,12 @@ const Navbar = () => {
 			onClick={toggleDarkMode}>
             <DarkMode/>
 			</button>
+            </div>
+            <div className="searchbar">
+                <input
+                // value={userInput} 
+                onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
+                <img src={frame} alt="" />
             </div>
         </nav>
     );

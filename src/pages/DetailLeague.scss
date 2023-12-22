@@ -3,6 +3,57 @@
     src: url("./../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
+//=================================================
+//          YASIN DETAIL LEAGUE STYLE BEGIN
+//=================================================
+.detail_league_header
+{
+    display: flex;
+    height: 780px;
+    padding-top: 2vh;
+    margin-bottom: 6.25rem;
+    .background_container
+    {
+        height: 100%;
+        img{
+            height: 100%;
+            object-fit: cover;
+            width: 648px;
+            filter:grayscale(1)
+        }
+    }
+
+    h2
+    {
+        font-size: 8rem;
+        position: absolute;
+        max-width: 80vw;
+        top: 200px;
+        right: 50px;
+            font-family: "Montserrat";
+            color: #E83539;
+            text-align: right;
+            text-transform:uppercase;
+            text-wrap: wrap;
+            word-wrap: break-word;
+            span
+            {
+                display: block;
+             font-size: 4.8rem;
+             font-family: "Montserrat";
+            text-align: right;
+            text-transform: uppercase;
+            color: #fff;
+            }
+        }
+    
+}
+
+//=================================================
+//          YASIN DETAIL LEAGUE STYLE END
+//=================================================
+
+
 .detail_league_header {
     padding-inline: 3%;
 

@@ -1,19 +1,22 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterInputContext, SearchStatusContext } from "../../Context/Context";
+import { FilterInputContext, SearchStatusContext, SelectedValueContext } from "../../Context/Context";
 import data from "../../../assets/data/data.json";
 import countryList from "../../../assets/data/country.json";
 import './Filterbar.scss';
 import Select from 'react-dropdown-select';
 
 const FilterBar = () => {
-    const { setUserInput } = useContext(FilterInputContext);
+    // console.clear()
+    const { userInput, setUserInput } = useContext(FilterInputContext);
     const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
+    const { selectedOptions, setSelectedOptions } = useContext(SelectedValueContext);
 
     const [sportOptions, setSportOptions] = useState([]);
     const [selectedValues, setSelectedValues] = useState([]);
     const [isCountrySelected, setIsCountrySelected] = useState(false);
-
+    
+    // get sport option values
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,20 +27,21 @@ const FilterBar = () => {
             } catch (error) {
                 console.error("Error loading data:", error);
             }
+            
         };
 
         fetchData();
     }, []);
 
-    useEffect(() => {
-    const selectedSport = selectedValues.find(filter => filter.type === 'sport');
-    const selectedCountry = selectedValues.find(filter => filter.type === 'country');
+    // erstelle für alle types ein separates array und update userInput mit beiden arrays
+   useEffect(() => {
+    const selectedSport = selectedValues.filter(filter => filter.type === 'sport').map(filter => filter.value);
+    const selectedCountry = selectedValues.filter(filter => filter.type === 'country').map(filter => filter.value);
 
-    setUserInput([
-        selectedSport ? selectedSport.value : '',
-        selectedCountry ? selectedCountry.value : ''
-    ].filter(Boolean).join(','));
-}, [selectedValues, setUserInput]);
+    setSelectedOptions([selectedSport, selectedCountry]);
+}, [selectedValues, setSelectedOptions]);
+
+
 
     const handleSelectChange = (selectedOption, type) => {
         if (selectedOption && selectedOption.length > 0) {
@@ -47,9 +51,7 @@ const FilterBar = () => {
             if (!selectedValues.some(filter => filter.type === type && filter.value === value)) {
                 // Füge das neue Element zum bestehenden Array hinzu
                 setSelectedValues(prevValues => [...prevValues, { type, value }]);
-
             }
-    
             if (type === 'country') {
                 setIsCountrySelected(true);
             }
@@ -61,10 +63,11 @@ const FilterBar = () => {
         const updatedFilters = selectedValues.filter(filter => !(filter.type === filterType && filter.value === filterValue));
         setSelectedValues(updatedFilters);
         setIsCountrySelected(false); 
+        setSearchStatus(false)
         // Zurücksetzen, wenn ein Land entfernt wird
     };
 
-
+    // render selected options
     const renderSelectedOptions = () => {
         return (
             <div className="filterWrap">
@@ -83,6 +86,7 @@ const FilterBar = () => {
             </div>
         );
     };
+
 
     const countryOptions = isCountrySelected
         ? [{ value: 'All Countries', label: 'All Countries' }, ...countryList.map((country, index) => ({ value: country, label: country }))]
