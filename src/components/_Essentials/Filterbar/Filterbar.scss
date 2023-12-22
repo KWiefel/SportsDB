@@ -15,6 +15,7 @@
         display: flex;
         gap: 36px;
         .renderContainer{
+            cursor: pointer;
             border: 1px solid #E9EAEC;
             padding: 5px;
             p{
@@ -34,7 +35,7 @@
         }
 
         .countSelect {
-        border: 1px solid #0f0f0f;
+        border: 1px solid #E9EAEC;
         width: 200px;
         z-index: 0; 
         }
@@ -53,7 +54,7 @@
     }
 
     .sportSelect {
-    border: 1px solid #0f0f0f;
+    border: 1px solid #E9EAEC;
     width: 200px;
     z-index: 1;
     }
