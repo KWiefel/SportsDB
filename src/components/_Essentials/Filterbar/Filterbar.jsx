@@ -93,6 +93,7 @@ const FilterBar = () => {
         : countryList.map((country, index) => ({ value: country, label: country }));
 
     return (
+        <>        
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
             <div className="selectContainer">
@@ -127,6 +128,7 @@ const FilterBar = () => {
             </div>
             </div>
         </div>
+        </>
     );
 };
 
