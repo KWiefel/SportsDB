@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/_Essentials/Navbar/Navbar";
 import FilterList from "./components/FilterList/FilterListCOPY";
 import { DarkModeProvider } from "./components/Context/DarkModeContext";
+import BtnUp from "./components/_Essentials/BtnUp/BtnUp";
 
 function App() {
   // state for data context
@@ -42,6 +43,7 @@ function App() {
             <Route path="/detail-team/:idTeam" element={<DetailTeam />} />
           </Routes>
           </SelectedValueContext.Provider>
+          <BtnUp/>
         </SearchStatusContext.Provider>
       </FilterInputContext.Provider>
     </AllLeagueContext.Provider>
