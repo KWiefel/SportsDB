@@ -59,12 +59,6 @@ const Navbar = () => {
             <DarkMode/>
 			</button>
             </div>
-            <div className="searchbar">
-                <input
-                // value={userInput} 
-                onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
-                <img src={frame} alt="" />
-            </div>
         </nav>
     );
 }
