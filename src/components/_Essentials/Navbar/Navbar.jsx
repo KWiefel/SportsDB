@@ -48,17 +48,17 @@ const Navbar = () => {
                 <img onClick={handleLogoClick} src={logo} alt="Sports.DB" />
                 <p onClick={handleLogoClick} >SPORTS.DB</p>
             </Link>
-            <div>
+            <div className="searchbar">
+                <input
+                value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
+                <img src={frame} alt="" />
+            </div>
+            <div className="dark-mode_wrapper">
             <button
 			className='darkModeButton'
 			onClick={toggleDarkMode}>
             <DarkMode/>
 			</button>
-            </div>
-            <div className="searchbar">
-                <input
-                value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
-                <img src={frame} alt="" />
             </div>
         </nav>
     );
