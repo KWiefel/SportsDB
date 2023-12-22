@@ -51,13 +51,13 @@ const Navbar = () => {
                 <input
                 value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
                 <img src={frame} alt="" />
-            </div>
-            <div className="dark-mode_wrapper">
-            <button
-			className='darkModeButton'
-			onClick={toggleDarkMode}>
-            <DarkMode/>
-			</button>
+                <div className="dark-mode_wrapper">
+                    <button
+                        className='darkModeButton'
+                        onClick={toggleDarkMode}>
+                        <DarkMode/>
+                    </button>
+                </div>
             </div>
         </nav>
     );
