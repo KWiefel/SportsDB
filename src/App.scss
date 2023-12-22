@@ -54,14 +54,29 @@ input {
 }
 
 .darkMode {
+      h2{
+      color: blue!important;
+      span{
+        color: #0f0f0f!important;
+      }
+    }
+  
 
   background-color: #E9EAEC;
-  fill: #3538e8;
+  fill: blue;
   ;
 
   .dropDownWrapper {
+
+    .renderContainer{
+      border: 1px solid #0f0f0f !important;
+      p{
+        color: #0f0f0f;
+      }
+    }
     .filterWtrap {
       align-items: center;
+
     }
 
     .overlay-spo {
@@ -89,17 +104,22 @@ input {
   }
 
   .navbar_container {
+          .logo{
+            border: 1px solid blue;
+            background-color:blue;
+            color: #E9EAEC;
+          }
     .dark-mode_wrapper {
       .darkModeButton {
         svg {
-          fill: #3538e8;
+          fill: blue;
         }
       }
     }
 
     .searchbar {
       input {
-        border: 3px solid #3538e8;
+        border: 3px solid blue;
         color: #0f0f0f;
       }
 
@@ -111,7 +131,7 @@ input {
 
   .hero_header {
     h1 {
-      color: #3538e8;
+      color:blue;
     }
   }
 
@@ -121,8 +141,9 @@ input {
 
   .league_list {
     .league_list_item {
+
       h3 {
-        -webkit-text-stroke-color: #3538e8;
+        -webkit-text-stroke-color: blue;
         color: #E9EAEC;
       }
     }
@@ -130,6 +151,7 @@ input {
     .underline-hover {
       position: relative;
       text-decoration: none;
+      
       &:before {
         content: '';
         position: absolute;
@@ -145,3 +167,7 @@ input {
       }
     }
 }
+
+
+
+
