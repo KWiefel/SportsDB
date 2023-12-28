@@ -175,6 +175,23 @@ input {
     }
 }
 
+.slide_in{
+  animation-name: slide_in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+  
+    @keyframes slide_in {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+  
+      to {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+}
 
 
 
