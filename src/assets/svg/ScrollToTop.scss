@@ -1,31 +1,32 @@
-.scroll-button{
+.scroll-button {
     border: transparent;
     transform: rotate(-90deg);
     position: fixed;
     bottom: 5%;
     right: 3%;
-    background-color: transparent;
     cursor: pointer;
-    overflow: hidden; 
-    transition: background-position 0.3s ease; /* Übergangseffekt für den Hintergrund */
-    transition: .5s ease-out;
+    // overflow: hidden;
+    transition: fill 0.3s ease, height 0.3s ease;
     z-index: 10;
-    
-    fill:  #e8353879;
-    &:hover{
-        height: 114px;
-        fill:  #E83539;
-    }
-}
 
-@media (max-width: 767.98px){
-    .scroll-button{
+
+    fill: transparent;
+    /* Setze die Füllung auf transparent */
+    stroke: #E83539;
+    /* Setze die Randfarbe auf rot */
+
+    &:hover {
+        fill: #E83539;
+        /* Setze die Füllung für den Hover-Zustand auf rot */
+        transition: fill 0.3s ease;
+        /* Übergang nur für die Füllung */
+    }
+
+    @media (max-width: 767.98px) {
         bottom: 100%;
     }
-}
 
-@media (max-width: 575.98px){
-    .scroll-button{
+    @media (max-width: 575.98px) {
         bottom: 31%;
         width: 70px;
         height: 70px;

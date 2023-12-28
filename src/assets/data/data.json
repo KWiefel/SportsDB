@@ -332,7 +332,7 @@
     "idLeague": "4410",
     "strLeague": "British GT Championship",
     "strSport": "Motorsport",
-    "strCountry": "United Kingdom",
+    "strCountry": ["United Kingdom", "Wales", "Scotland", "Northern Ireland"],
     "strLeagueAlternate": ""
   },
   {

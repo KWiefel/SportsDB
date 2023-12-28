@@ -6,9 +6,6 @@ const Fetch = () => {
     const { allLeagueData, setAllLeagueData } = useContext(AllLeagueContext);
     const [fetchedData, setFetchedData] = useState([]);
 
-
-    console.log("FetchComponent:", allLeagueData);
-
     // fetch all league data
     useEffect(() => {
         const allPromises = data.map((league) => {

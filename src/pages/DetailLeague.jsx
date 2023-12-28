@@ -11,16 +11,14 @@ const DetailLeague = () => {
   const [allTeams, setAllTeams] = useState([]);
   const [sports, setSports] = useState("");
 
-  console.log(allTeams);
-
   const { id } = useParams();
 
   useEffect(() => {
     // Filtere die Teams entsprechend der Liga-ID
     const filteredTeams = allLeagueData.filter((team) => team.idLeague === id);
     setAllTeams(filteredTeams);
-    console.log(allTeams);
   }, [allLeagueData, id]);
+
   return ( allTeams.length > 0 ? (
     <main>
       <section className="detail_league_header">
@@ -32,8 +30,8 @@ const DetailLeague = () => {
       <section className="detail_league_main">
         {allTeams.length > 0 ? (
           <ul>
-            {allTeams.map((team) => (
-              <Link to={`/detail-team/${team.idTeam}`} className="scale-hover"><li key={team.idTeam}><span>{team.strTeam}</span> {team.strStadiumLocation}</li></Link>
+            {allTeams.map((team, index) => (
+              <Link key={index} to={`/detail-team/${team.idTeam}`} className="scale-hover"><li key={team.idTeam}><span>{team.strTeam}</span> {team.strStadiumLocation}</li></Link>
             ))}
           </ul>
         ) : (

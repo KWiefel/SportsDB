@@ -7,7 +7,7 @@ import './Filterbar.scss';
 import Select from 'react-dropdown-select';
 
 const FilterBar = () => {
-    // console.clear()
+
     const { userInput, setUserInput } = useContext(FilterInputContext);
     const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
     const { selectedOptions, setSelectedOptions } = useContext(SelectedValueContext);
