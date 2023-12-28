@@ -1,0 +1,32 @@
+.scroll-button {
+    border: transparent;
+    transform: rotate(-90deg);
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    cursor: pointer;
+    // overflow: hidden;
+    transition: fill 0.3s ease, height 0.3s ease;
+    z-index: 10;
+
+
+    fill: transparent;
+    /* Setze die Füllung auf transparent */
+    stroke: #E83539;
+    /* Setze die Randfarbe auf rot */
+
+    &:hover {
+        fill: #E83539;
+        transition: fill 0.3s ease;
+    }
+
+    @media (max-width: 767.98px) {
+        bottom: 100%;
+    }
+
+    @media (max-width: 575.98px) {
+        bottom: 31%;
+        width: 70px;
+        height: 70px;
+    }
+}

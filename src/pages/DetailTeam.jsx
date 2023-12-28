@@ -3,49 +3,79 @@ import { Link, useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import {
   AllLeagueContext,
-  FetchCompleteContext,
 } from "../components/Context/Context";
+import loadingAnimation from "/sportdb_loading.gif"
+import { useDarkmode } from "../components/Context/DarkModeContext";
 
 const DetailTeam = () => {
   // get context
   const { allLeagueData } = useContext(AllLeagueContext);
-  const { fetchStatus } = useContext(FetchCompleteContext);
+
 
   // component state
   const [filteredTeam, setFilteredTeam] = useState([]);
-  console.log(filteredTeam);
-
+  const [ dataLoading, setDataLoading ] = useState(false);
+  const [ dataAvailable, setDataAvailable ] = useState(false);
+  
   // get team id trough dynamic link
-  const idParam = useParams();
-
-  console.log(useParams());
+  const { idTeam } = useParams();
+  
 
   useEffect(() => {
-    [...allLeagueData].forEach((team) => {
-      if (team.idTeam == "133604") {
-        console.log(team);
-        setFilteredTeam([team]);
-      }
-    });
-  }, [fetchStatus]);
+    if (allLeagueData.length < 840) {
+      setDataLoading(!dataLoading);
+    } else {
+      [...allLeagueData].forEach((team) => {
+        if (team.idTeam === idTeam) {
+          setFilteredTeam([team]);
+        }
+        setDataAvailable(true);
+    })
+    };
+  }, [dataLoading, idTeam]);
 
-  return (
+
+
+      	//=======DarkMode=================
+  const { isDarkMode, setIsDarkMode } = useDarkmode(false);
+	const body = document.div;
+	const toggleDarkMode = () => {
+		setIsDarkMode(!isDarkMode);
+		if (!isDarkMode) {
+			body.classList.remove("lightMode");
+			body.classList.add("darkMode");
+		} else {
+			body.classList.remove("darkMode");
+			body.classList.add("lightMode");
+		}
+	};
+	useEffect(() => {}, [isDarkMode]);
+
+  return ( dataAvailable  ? (
     <>
       {/* <Link to="/"> Back Home</Link> */}
-      <div className="detailteam__wrapper">
+      <div className={`detailteam__wrapper ${isDarkMode ? "dark-mode" : ""}`}>
         <header className="detailteam__header">
           <h1 className="detailteam_title">{filteredTeam[0]?.strTeam}</h1>
           <div className="background_img">
             <div className="img"></div>
             <div className="facts__wrapper">
-              <p className="subtitle">{filteredTeam[0]?.strCountry}</p>
-              <p className="subtitle_description">Country</p>
-              <p className="subtitle">{filteredTeam[0]?.strStadiumLocation}</p>
-              <p className="subtitle_description">Location</p>
-              <p className="subtitle">{filteredTeam[0]?.intFormedYear}</p>
-              <p className="subtitle_description">Established</p>
-              <p className="subtitle">{filteredTeam[0]?.strSport}</p>
-              <p className="subtitle_description">Sport</p>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strCountry}</p>
+                <p className="subtitle_description">Country</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strStadiumLocation}</p>
+                <p className="subtitle_description">Location</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.intFormedYear}</p>
+                <p className="subtitle_description">Established</p>
+              </div>
+              <div>
+                <p className="subtitle">{filteredTeam[0]?.strSport}</p>
+                <p className="subtitle_description">Sport</p>
+              </div>
             </div>
             <img src={filteredTeam[0]?.strStadiumThumb} alt="" />
           </div>
@@ -92,24 +122,28 @@ const DetailTeam = () => {
           </section>
         </main>
         <footer className="detailteam__footer">
-          <a className="link" href={`https://${filteredTeam[0]?.strWebsite}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strWebsite}`} target="_blank">
             <p className="subtitle">Website</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strFacebook}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strFacebook}`} target="_blank">
             <p className="subtitle">Facebook</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strTwitter}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strTwitter}`} target="_blank">
             <p className="subtitle">Twitter</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strInstagram}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strInstagram}`} target="_blank">
             <p className="subtitle">Instagram</p>
           </a>
-          <a className="link" href={`https://${filteredTeam[0]?.strYoutube}`}>
+          <a className="link" href={`https://${filteredTeam[0]?.strYoutube}`} target="_blank">
             <p className="subtitle">Youtube</p>
           </a>
         </footer>
       </div>
     </>
+  ) : <div className="loading_animation_container">
+    <img src={loadingAnimation} alt="" />
+    </div>
+    
   );
 };
 

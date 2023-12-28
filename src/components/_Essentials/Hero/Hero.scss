@@ -6,7 +6,8 @@
   position: relative;
 
   div{
-    background: url("home_hero_background.jpeg") center / cover no-repeat;
+    // background: url("home_hero_background.jpeg") center / cover no-repeat;
+    background: url("./../../../assets/img/home_hero_background.jpeg") center / cover no-repeat;
     background-origin: padding-box;
     background-size: 980px 680px;
     height: 100%;
@@ -28,3 +29,68 @@
     text-align: right;
   }
 }
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+  .hero_header {
+    height: 480px;
+      
+    h1 {
+        font-size: 7rem;
+      }
+      div {
+        background-origin: padding-box;
+        background-size: 800px 580px;
+        left: -220px;
+      }
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .hero_header {
+      h1 {
+        font-size: 6rem;
+  
+      }
+    }
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .hero_header {
+    height: 320px;
+    h1 {
+      font-size: 5rem;
+
+    }
+        div {
+          background-origin: padding-box;
+          background-size: 600px 420px;
+          left: -60px;
+        }
+  }
+
+}
+
+
+@media (max-width: 575.98px) {
+  .hero_header {
+    height: 250px;
+    h1
+    {
+      font-size: 3rem;
+
+    }
+        div {
+          background-origin: padding-box;
+          background-size: 400px 270px;
+          left: -60px;
+        }
+  }
+
+}
+

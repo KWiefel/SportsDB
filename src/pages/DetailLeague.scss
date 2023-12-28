@@ -1,0 +1,309 @@
+@font-face {
+    font-family: "Monsterrat";
+    src: url("./../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+//=================================================
+//          YASIN DETAIL LEAGUE STYLE BEGIN
+//=================================================
+.detail_league_header
+{
+    display: flex;
+    height: 780px;
+    padding-top: 2vh;
+    margin-bottom: 6.25rem;
+    .background_container
+    {
+        height: 100%;
+        img{
+            height: 100%;
+            object-fit: cover;
+            width: 648px;
+            filter:grayscale(1)
+        }
+    }
+
+    h2
+    {
+        font-size: 8rem;
+        position: absolute;
+        max-width: 80vw;
+        top: 200px;
+        right: 50px;
+            font-family: "Montserrat";
+            color: #E83539;
+            text-align: right;
+            text-transform:uppercase;
+            text-wrap: wrap;
+            word-wrap: break-word;
+            span
+            {
+            display: block;
+            font-size: 4.8rem;
+            font-family: "Montserrat";
+            text-align: right;
+            text-transform: uppercase;
+            color: #fff;
+            }
+        }
+
+                
+    
+}
+
+//=================================================
+//          MEDIA QUERIES HERO BEGIN
+//=================================================
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+    .detail_league_header {
+        height: 540px;
+
+        h2 {
+            font-size: 5rem;
+
+        }
+                .background_container {
+                    height: 100%;
+        
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                        width: 548px;
+                        filter: grayscale(1)
+                    }
+                }
+
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    .detail_league_header {
+        h2 {
+            font-size: 4rem;
+            span{
+               font-size:  2.4rem;
+                }
+
+        }
+        
+    }
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .detail_league_header {
+        height: 420px;
+
+        h1 {
+            font-size: 3rem;
+
+        }
+                .background_container {
+                    height: 100%;
+        
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                        width: 458px;
+                        filter: grayscale(1)
+                    }
+                }
+
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+    .detail_league_header {
+        height: 350px;
+        h2 {
+            font-size: 3rem;
+
+        }
+        .background_container {
+            height: 100%;   
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 258px;
+                filter: grayscale(1)
+            }
+}}}
+//=================================================
+//          MEDIA QUERIES HERO END
+//=================================================
+
+
+//=================================================
+//          YASIN DETAIL LEAGUE STYLE END
+//=================================================
+
+
+.detail_league_header {
+    padding-inline: 3%;
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.detail_league_main {
+    padding-inline: 3%;
+
+    ul {
+
+        a {
+            text-decoration: none;
+
+            li {
+                list-style-type: none;
+                margin-bottom: 2.25rem;
+                font-family: "Monsterrat";
+                font-weight: bold;
+                
+                span {
+                    font-size: 2.6rem;
+                    margin-right: 0.625rem;
+                }
+            }
+        }
+    }
+}
+
+.scale-hover {
+    display: block;
+    transition: transform 0.3s ease-in-out; // Ändere die Übergangszeit nach Bedarf
+
+    &:hover {
+        transform: scale(1.1); // Ändere den Skalierungsfaktor nach Bedarf
+        background: rgb(0,0,0);
+background: linear-gradient(5deg, rgba(0,0,0,0.517266281512605) 0%, rgba(0,0,0,0.5676864495798319) 0%, rgba(211,208,208,1) 100%);
+        
+    }
+}
+
+// **************************************************
+//                 Media Queries
+// **************************************************
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    .detail_league_header {
+        padding-inline: 3%;
+    
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    
+    .detail_league_main {
+        padding-inline: 3%;
+    
+        ul {
+    
+            a {
+                text-decoration: none;
+    
+                li {
+                    list-style-type: none;
+                    font-family: "Monsterrat";
+                    font-weight: bold;
+                    
+                    span {
+                        font-size: 1.5rem !important;
+                        margin-right: 0.625rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    .detail_league_header {
+        padding-inline: 3%;
+    
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    
+    .detail_league_main {
+        padding-inline: 3%;
+    
+        ul {
+    
+            a {
+                text-decoration: none;
+    
+                li {
+                    list-style-type: none;
+                    font-family: "Monsterrat";
+                    font-weight: bold;
+                    
+                    span {
+                        font-size: 1.8rem !important;
+                        margin-right: 0.625rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+    
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+    main {
+        .detail_league_header {
+            padding-inline: 3%;
+        
+            img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+        
+        .detail_league_main {
+            padding-inline: 3%;
+        
+            ul {
+        
+                a {
+                    text-decoration: none;
+        
+                    li {
+                        list-style-type: none;
+                        // padding-bottom: 2.25rem;
+                        font-family: "Monsterrat";
+                        font-weight: bold;
+                        
+                        span {
+                            margin-right: 0.625rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) { 
+
+}

@@ -1,0 +1,13 @@
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 3%;
+    // background-color: transparent;
+    background-color: red;
+    border: 2px solid red;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden; 
+    transition: .5s ease-out;
+}

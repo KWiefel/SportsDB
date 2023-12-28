@@ -1,150 +1,135 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterInputContext } from "../../Context/Context";
+import { FilterInputContext, SearchStatusContext, SelectedValueContext } from "../../Context/Context";
 import data from "../../../assets/data/data.json";
+import countryList from "../../../assets/data/country.json";
 import './Filterbar.scss';
+import Select from 'react-dropdown-select';
 
 const FilterBar = () => {
-    const navigate = useNavigate();
+
     const { userInput, setUserInput } = useContext(FilterInputContext);
+    const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
+    const { selectedOptions, setSelectedOptions } = useContext(SelectedValueContext);
 
     const [sportOptions, setSportOptions] = useState([]);
-    const [countryOptions, setCountryOptions] = useState([]);
     const [selectedValues, setSelectedValues] = useState([]);
-
+    const [isCountrySelected, setIsCountrySelected] = useState(false);
+    
+    // get sport option values
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const teamsData = data;
-
                 const uniqueSports = [...new Set(teamsData.map((team) => team.strSport))];
-                const sportDropdownOptions = uniqueSports.map((sport) => sport);
+                const sportDropdownOptions = uniqueSports.map((sport) => ({ value: sport, label: sport }));
                 setSportOptions(sportDropdownOptions);
-
-                const excludedLeagues = ["WTCC", "WRC", "MotoGP", "NASCAR", "NBA", "UK", "CFL", "NFL", "BTCC", "Formula", "NHL", "IndyCar"];
-
-                const countryEntries = teamsData.filter(team => {
-                    return team.strLeague &&
-                    team.strLeague !== "_No League" &&
-                    !excludedLeagues.some(excludedLeague => team.strLeague.includes(excludedLeague)) &&
-                    !team.strLeague.match(/[0-9]/);
-                });
-                const uniqueCountries = [...new Set(countryEntries.map((team) => team.strLeague.split(' ')[0]))];
-                setCountryOptions(uniqueCountries);
             } catch (error) {
                 console.error("Error loading data:", error);
             }
+            
         };
 
         fetchData();
     }, []);
 
-    const handleSportSelectChange = (event) => {
-        const value = event.target.value;
-        setUserInput([value, selectedValues[1]]);
-        navigate("/results");
+    // erstelle für alle types ein separates array und update userInput mit beiden arrays
+   useEffect(() => {
+    const selectedSport = selectedValues.filter(filter => filter.type === 'sport').map(filter => filter.value);
+    const selectedCountry = selectedValues.filter(filter => filter.type === 'country').map(filter => filter.value);
+
+    setSelectedOptions([selectedSport, selectedCountry]);
+}, [selectedValues, setSelectedOptions]);
+
+
+
+    const handleSelectChange = (selectedOption, type) => {
+        if (selectedOption && selectedOption.length > 0) {
+            const value = selectedOption[0].value;
+    
+            // Überprüfe, ob das Element bereits ausgewählt wurde
+            if (!selectedValues.some(filter => filter.type === type && filter.value === value)) {
+                // Füge das neue Element zum bestehenden Array hinzu
+                setSelectedValues(prevValues => [...prevValues, { type, value }]);
+            }
+            if (type === 'country') {
+                setIsCountrySelected(true);
+            }
+        }
+        setSearchStatus(true);
     };
 
-    const handleCountrySelectChange = (event) => {
-        const value = event.target.value;
-        setUserInput([selectedValues[0], value]);
-        navigate("/results");
+    const handleRemoveFilter = (filterType, filterValue) => {
+        const updatedFilters = selectedValues.filter(filter => !(filter.type === filterType && filter.value === filterValue));
+        setSelectedValues(updatedFilters);
+        setIsCountrySelected(false); 
+        setSearchStatus(false)
+        // Zurücksetzen, wenn ein Land entfernt wird
     };
 
-    useEffect(() => {
-        console.log("Saved Values:", selectedValues);
-
-        // const userInputArray = [selectedValues[0], selectedValues[1]];
-        setUserInput(selectedValues);
-    }, [selectedValues, setUserInput, navigate]);
-
+    // render selected options
     const renderSelectedOptions = () => {
         return (
             <div className="filterWrap">
-                {selectedValues[0] && (
-                    <div>
-                        {selectedValues[0]}{" "}
+                {selectedValues.map((filter, index) => (
+                    <div key={index} className="renderContainer">
+                    <p key={`${filter.type}-${filter.value}`}>
+                        {filter.value}{" "}
                         <span
-                            style={{ cursor: "pointer", color: "red" }}
-                            onClick={() => handleRemoveFilter("sport")}
+                            onClick={() => handleRemoveFilter(filter.type, filter.value)}
                         >
                             x
                         </span>
+                    </p>
                     </div>
-                )}
-                {selectedValues[1] && (
-                    <div>
-                        {selectedValues[1]}{" "}
-                        <span
-                            style={{ cursor: "pointer", color: "red" }}
-                            onClick={() => handleRemoveFilter("country")}
-                        >
-                            x
-                        </span>
-                    </div>
-                )}
+                ))}
             </div>
         );
     };
 
-    const handleRemoveFilter = (filterType) => {
-        if (filterType === "sport") {
-            setSelectedValues([selectedValues[1]]);
-        } else if (filterType === "country") {
-            setSelectedValues([selectedValues[0]]);
-        }
-    };
+
+    const countryOptions = isCountrySelected
+        ? [{ value: 'All Countries', label: 'All Countries' }, ...countryList.map((country, index) => ({ value: country, label: country }))]
+        : countryList.map((country, index) => ({ value: country, label: country }));
 
     return (
+        <>        
         <div className="dropDownWrapper">
             {renderSelectedOptions()}
-            <select
-                defaultValue={1}
-                value={selectedValues[0]}
-                onChange={handleSportSelectChange}
-                style={{ color: 'white',backgroundColor:'black' }}
-            >
-                <option disabled value={1}>All Sports</option>
-                {sportOptions.map((sport, index) => (
-                    <option key={index} value={sport}>{sport}</option>
-                ))}
-            </select>
-            <select
-                defaultValue={1}
-                value={selectedValues[1]}
-                onChange={handleCountrySelectChange}
-                style={{ color: 'white',backgroundColor:'black' }}
-            >
-                <option disabled value={1}>All Country</option>
-                {countryOptions.map((country, index) => (
-                    <option key={index} value={country}>{country}</option>
-                ))}
-            </select>
+            <div className="selectContainer">
+            <div>
+            <Select
+                className="countSelect"
+                options={countryOptions}
+                values={selectedValues.filter(filter => filter.type === 'country')}
+                dropdownHandleRenderer={({ state }) => (
+                    <span className="dropArrow">{state.dropdown ? '▲' : '▼'}</span>
+                )}
+                onChange={(values) => handleSelectChange(values, 'country')}
+                onClearClick={() => handleRemoveFilter('country', selectedValues.find(filter => filter.type === 'country').value)}
+            />
+                        <div className="overlay">
+                All Countries
+            </div>
+            </div>
+            <div>
+            <Select
+                className="sportSelect"
+                options={sportOptions}
+                values={selectedValues.filter(filter => filter.type === 'sport')}
+                dropdownHandleRenderer={({ state }) => (
+                <span className="dropArrow">{state.dropdown ? '▲' : '▼'}</span>
+                )}
+                onChange={(values) => handleSelectChange(values, 'sport')}
+            />
+            <div className="overlay-spo">
+                All Sports
+            </div>
+            </div>
+            </div>
         </div>
+        </>
     );
 };
 
 export default FilterBar;
-{/* <div className="dropDownWrapper">
-{renderSelectedOptions()}
-<Dropdown
-id="sportDropdown"
-arrowClosed={<span className="arrow-closed" />}
-isClearable
-onClose={(closedBySelection) => handleDropdownClose(closedBySelection, "sportDropdown")}
-onOpen={() => console.log('open!')}
-placeholder="All Sports"
-options={sportOptions}
-onChange={(value) => handleSportDropdownChange(value.value)}
-/>
-<Dropdown
-id="countryDropdown"
-arrowClosed={<span className="arrow-closed" />}
-isClearable
-onClose={(closedBySelection) => handleDropdownClose(closedBySelection, "countryDropdown")}
-onOpen={() => console.log('open!')}
-placeholder="Allountry"
-options={countryOptions}
-onChange={(value) => handleCountryDropdownChange(value.value)}
-/>
-</div> */}

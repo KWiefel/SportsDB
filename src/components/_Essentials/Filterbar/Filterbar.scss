@@ -1,22 +1,103 @@
 .dropDownWrapper{
+    padding-top: 100px;
+    padding-inline: 4.5%;
     display: flex;
-    justify-content: flex-end;
+    gap: 20px;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+    .selectContainer{
+        gap: 35px;
+        display: flex;
+    }
+    
     .filterWrap{
         display: flex;
-        div{
-            color: white;
-            max-width: fit-content;
-            height: 4vh;
-            align-items: center;
-            margin: 0 auto;
-            display: flex;
-            border: 1px solid white;
-            background-color: transparent;
+        gap: 36px;
+        .renderContainer{
+            cursor: pointer;
+            border: 1px solid #E9EAEC;
+            padding: 5px;
+            p{
+                padding-top: 0.1rem;
+            }
         }
     }
-    div{
-        width: 280px;
-        color: black;
+    .overlay-spo {
+        color: #E9EAEC;
+        background-color: #0f0f0f;
+        position: absolute;
+        bottom: 3px;
+        width: 170px;
+        height: 26px;
+        margin-left: 0.4rem;
+        z-index: 1;
+        }
+
+        .countSelect {
+        border: 1px solid #E9EAEC;
+        width: 200px;
+        z-index: 0; 
+        }
+        .react-dropdown-select-dropdown{
+            background-color:#0f0f0f;
+        }
+    .overlay {
+        color: #E9EAEC;
+        background-color: #0f0f0f;
+        position: absolute;
+        bottom: 1.5px;
+        width: 170px;
+        height: 26px;
+        margin-left: 0.4rem;
+        z-index: 1;
+    }
+
+    .sportSelect {
+    border: 1px solid #E9EAEC;
+    width: 200px;
+    z-index: 1;
+    }
+    .react-dropdown-select-dropdown{
+        background-color:  #0f0f0f;
+    }
+    .countSelect{
+        width: 200px;
+        z-index: 1;
+
     }
 }
+@media (max-width: 767.98px){
+    .dropDownWrapper{
+        flex-direction: row;
+        .filterWrap{
+            .renderContainer{
+                max-height: 36px;
+                width: fit-content;
+            }
+        }
+    }
+}
+@media (max-width: 575.98px){
+    .dropDownWrapper{
+        .overlay{
+        width: 110px;
+        }
+        .overlay-spo{
+            width: 110px;
+        }
+        .sportSelect {
+        width: 150px;
+        }
+        .countSelect {
+        width: 150px;
 
+            }
+        justify-content: center;
+        .selectContainer{
+        gap: 10px;
+        
+        }
+        flex-direction: row;
+    }
+}
