@@ -17,9 +17,7 @@
 
     &:hover {
         fill: #E83539;
-        /* Setze die Füllung für den Hover-Zustand auf rot */
         transition: fill 0.3s ease;
-        /* Übergang nur für die Füllung */
     }
 
     @media (max-width: 767.98px) {

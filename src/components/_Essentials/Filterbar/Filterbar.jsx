@@ -71,8 +71,8 @@ const FilterBar = () => {
     const renderSelectedOptions = () => {
         return (
             <div className="filterWrap">
-                {selectedValues.map(filter => (
-                    <div className="renderContainer">
+                {selectedValues.map((filter, index) => (
+                    <div key={index} className="renderContainer">
                     <p key={`${filter.type}-${filter.value}`}>
                         {filter.value}{" "}
                         <span

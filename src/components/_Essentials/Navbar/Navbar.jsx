@@ -21,7 +21,7 @@ const Navbar = () => {
         navigate('/results');
     }
 
-    	//=======DarkMode=================
+    // ================ DarkMode =================
 	const { isDarkMode, setIsDarkMode } = useDarkmode(false);
 	const body = document.body;
 	const toggleDarkMode = () => {
