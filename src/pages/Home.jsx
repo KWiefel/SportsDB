@@ -3,7 +3,6 @@ import Hero from "../components/_Essentials/Hero/Hero";
 import data from "../assets/data/data.json";
 import FilterBar from "../components/_Essentials/Filterbar/Filterbar";
 import './Home.scss';
-// import FilterList from "../components/FilterList/FilterList"
 
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
     <FilterBar/>
     <main>
       <LeagueList />
-
     </main>
     </>
   );

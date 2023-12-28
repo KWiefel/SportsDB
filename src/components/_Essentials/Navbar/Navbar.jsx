@@ -49,7 +49,7 @@ const Navbar = () => {
             </Link>
             <div className="searchbar">
                 <input
-                value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team, stadium or competition"/>
+                value={userInput} onChange={handleSearchInput} type="text" placeholder="Search for team"/>
                 <img src={frame} alt="" />
                 <div className="dark-mode_wrapper">
                     <button

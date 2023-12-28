@@ -16,11 +16,9 @@ const DetailTeam = () => {
   const [filteredTeam, setFilteredTeam] = useState([]);
   const [ dataLoading, setDataLoading ] = useState(false);
   const [ dataAvailable, setDataAvailable ] = useState(false);
-  console.log(filteredTeam);
-
+  
   // get team id trough dynamic link
   const { idTeam } = useParams();
-  console.log("DETAIL-TEAM ID:", idTeam);
   
 
   useEffect(() => {
@@ -29,7 +27,6 @@ const DetailTeam = () => {
     } else {
       [...allLeagueData].forEach((team) => {
         if (team.idTeam === idTeam) {
-          console.log(team);
           setFilteredTeam([team]);
         }
         setDataAvailable(true);

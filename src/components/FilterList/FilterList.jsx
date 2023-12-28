@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import data from "../../assets/data/data.json";
 import { useContext, useEffect, useState } from "react";
-import "./FilterList.scss"
+
 import noResultsScreen from "/no_results2.gif"
 import "./../../components/_Essentials/Hero/Hero"
 
@@ -18,7 +18,7 @@ const LeagueList = () => {
     const { allLeagueData } = useContext(AllLeagueContext);
     const { userInput, setUserInput } = useContext(FilterInputContext);
     const { searchStatus, setSearchStatus } = useContext(SearchStatusContext);
-    const { selectedOptions, setSelectedOptions } = useContext(SelectedValueContext);
+    
 
     // component state
     const [results, setResults] = useState([]);
@@ -30,24 +30,10 @@ const LeagueList = () => {
                 const keyword = userInput.join().trim().toLowerCase()
                 if (team.strTeam.toLowerCase().includes(keyword)) {
                     return team;
-                } else if (team.strStadium.toLowerCase().includes(keyword)){
-                    return team;
-                }
-                else if(team.strCountry.includes(userInput.flat()) || team.strSport.includes(userInput.flat()))
-                {
-                    return team;
                 }
             } 
-            else if (userInput.length === 2 && userInput[0].length >= 1 && userInput[1].length >= 1) { 
-            const condition1 = userInput[0].some(value => team.strSport === value);
-            const condition2 = userInput[1].some(value => team.strCountry === value);
-
-            if (condition1 && condition2) {
-                return team;
-            }} 
         }) 
                 setResults(searchResults);
-                console.log("FILTERED RESULTS: ",searchResults);
         }, [userInput])
 
     // ==================================================================

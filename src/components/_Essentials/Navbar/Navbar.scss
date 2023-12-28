@@ -53,20 +53,19 @@
             &::placeholder
             {
                 opacity: 0;
-                transition: all 0.5s ease;
             }
             &:focus
             {
                 outline: none;
                 width: 272px;
-            }
-            &:hover
-            {
-                width: 272px;
                 &::placeholder
                 {
                     opacity: 1;
                 }
+            }
+            &:hover
+            {
+                width: 272px;
             }
         }
 
@@ -76,6 +75,7 @@
             width: 14px;
             left: 8px;
             top: 8px;
+            z-index: -1;
         }
     }
 }

@@ -1,10 +1,9 @@
 [
     "England", "Wales", "Scotland", "Germany", "Italy", "France",
-    "Monaco", "Spain", "Greece", "Netherlands",
+    "Spain", "Greece", "Netherlands",
     "Belgium", "Turkey", "Denmark", "Portugal",
     "United States", "Canada", "Sweden", "Mexico", "Brazil", "Ukraine",
-    "Russia", "Russian Federation", "Australia", "New Zealand",
-    "Norway", "China", "USA", "Austria", "United Kingdom", "India",
-    "Northern Ireland", "Andorra", "Argentina", "Japan",
-    "Malaysia", "Finland"
+    "Russia", "Australia",
+    "Norway", "China", "USA", "United Kingdom",
+    "Northern Ireland", "Argentina"
 ]
